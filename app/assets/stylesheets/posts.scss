@@ -1,0 +1,39 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.simple_form {
+  label {
+    margin: 2px 10px;
+    &.radio, &.checkbox {
+      float: none;
+      margin: 0;
+      width: auto;
+      text-align: left;
+    }
+    &.checkbox {
+      display: block;
+    }
+    &.radio { margin-right: 10px; }
+  }
+
+  div.input { margin-bottom: 10px;}
+  input.radio_buttons, input.check_boxes {
+    margin-right: 5px;
+  }
+  .alert-error {
+    color: #D00;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .hint, .error {
+    clear: left;
+    font-size: 12px;
+    color: #D00;
+    display: block;
+  }
+  .hint {
+    color: #555;
+    font-style: italic;
+  }
+}

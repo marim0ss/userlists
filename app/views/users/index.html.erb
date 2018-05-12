@@ -1,0 +1,46 @@
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">ユーザー一覧</h1>
+    </div>
+
+    <div class="panel-body">
+      <% @users.each do |user| %>
+        <p>名前：<%= user.name %></p>
+        <p>年齢：<%= user.age %></p>
+        <p>出身：<%= user.birthplace %></p>
+        <p><%= link_to '編集', "/users/#{user.id}/edit", :class => "btn btn-info "%></p>
+      <% end %>
+    </div>
+  </div>
+  <p><%= link_to "Sign up", '/user/new', class: "btn btn-primary btn-lg" %></p>
+
+  </div>
+
+
+<!-- 上と同じ内容を表で表示 -->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    ユーザー一覧
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th>名前</th>
+          <th>年齢</th>
+          <th>出身</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.age %></td>
+        <td><%= user.birthplace %></td>
+        <td><%= link_to '編集', "/users/#{user.id}/edit", :class => "btn btn-info btn-sm "%></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

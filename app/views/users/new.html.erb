@@ -1,0 +1,15 @@
+<h3>ユーザ新規作成画面</h3>
+
+  <%= simple_form_for @users, :url => {:action => :create} do |f| %>
+
+  <p><%= f.input :name %></p>
+  <p><%= f.input :age %></p>
+  <p><%= f.input :birthplace %></p>
+
+  <!--  #as: :fileでアップロードフォームが作れる -->
+  <div class="form-group">
+  <%= f.input :image, as: :file %>
+  </div>
+
+  <p><%= f.button :submit, "登録！", :class=>"btn" %></p>
+<% end %>

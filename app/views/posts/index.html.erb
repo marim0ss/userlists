@@ -1,0 +1,10 @@
+<h1>投稿内容一覧</h1>
+
+<% @posts.each do |post| %>
+  <p>#<%= post.user_id %></p>
+  <p>コメント：<%= post.content %></p>
+  <p>投稿写真：
+        <%= image_tag post.post_image_name.to_s %>
+  </p>
+  <p>ユーザー名：<%= @search_username %></p>
+<% end %>

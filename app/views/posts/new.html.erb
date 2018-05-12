@@ -1,0 +1,13 @@
+<h2>新しい投稿</h2>
+
+  <%= simple_form_for @posts, :url => {:action => :create} do |f| %>
+
+  <%= f.input :user_id, label: "user_id(自動で入れる)" %>
+
+  <%= f.input :post_image_name, as: :file, label: "画像" %>
+  <!--  #as: :fileでアップロードフォームが作れる -->
+  <%= f.input :content, label: "コメント" %>
+
+
+  <%= f.button :submit, "登録！", :class=>"btn" %>
+<% end %>
