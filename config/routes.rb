@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   #bootstrapの導入
   root to: 'users#index'
   # get 'users/index'
-  get '/user/index', to: 'users#index'
+  get '/users/index', to: 'users#index'
 
-
-  get "/user/new", to: "users#new"
-  post '/user/new', to: 'users#create'
+  get "/users/new", to: "users#new"
+  post '/users/new', to: 'users#create'
 
   get '/users/:id/edit', to: 'users#edit'
   #url => users/1/edit
