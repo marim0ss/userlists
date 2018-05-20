@@ -2,16 +2,58 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
-        <h3 class="text-center">ユーザー情報を編集</h3>
-        <%= simple_form_for @user , :url => {:action => :update} do |f| %>
-          <div class="form">
-            <%= f.input :name %>
-            <%= f.input :age %>
-            <%= f.input :birthplace %>
-            <%= f.button :submit, "送信", :class=> "btn btn-info" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+            <h3 class="text-center">ユーザー情報を編集</h3>
+            <%= simple_form_for @user , :url => {:action => :update} do |f| %>
+
+
+                <div class="form-group">
+                  <%= f.label :name, "Name" %>
+                  <%= f.text_field :name %></div>
+
+                <div class="form-group">
+                  <%= f.input :age, collection: 0..110, label: "Age" %></div>
+
+                <div class="form-group">
+                  <%= f.label :name, "Birth Place" %>
+                  <%= f.text_field :birthplace %></div>
+
+
+                <!--  #as: :fileでアップロードフォームが作れる -->
+                <div class="form-group">
+                  <h6>現在の画像：</h6>
+                  <p><%= image_tag @user.image_url(:thumb) %></p>
+
+                <%= f.input :image, as: :file %>
+
+              </div>
+
+
+      <!-- 詳細情報欄  ------------------------------------------------------------------- -->
+              <div class="form-group">
+              <%= f.input :gender, as: :radio_buttons, collection: [["male", "male"],["female", "female"]], item_wrapper_class: "inline" %></div>
+
+              <!--date型で生年月日。 start_year,end_yearで西暦範囲を絞る -->
+              <div class="form-group">
+              <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year %></div>
+
+
+              <!--元気？ラジオボタン。 Good => 1, Fine=>2.....として登録 -->
+              <div class="form-group">
+              <%= f.input :how_are_you, label: "How are you?",  as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %></div>
+
+              <!-- プログラミングチェックボックス -->
+              <div class="form-group">
+              <%= f.input :programming, as: :check_boxes, collection: [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]] %></div>
+
+
+              <%= f.button :submit, "更新する", :class=> "btn btn-info btn-lg" %>
+
+            <% end %>
+
+
+      </div><!-- <div class="col-md-4 col-md-offset-4"> -->
+    </div><!-- <class="row"> -->
+  </div><!-- class="container" -->
+</div><!-- < id="new-user"> -->

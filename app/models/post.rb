@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
 
-  mount_uploader :post_image_name, ImageUploader
-
+  # mount_uploader :post_image_name, PictureUploader
 
   def search_username
     User.find_by_sql("

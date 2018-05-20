@@ -30,18 +30,19 @@ class UsersController < ApplicationController
   #更新
   def update
     user = User.find(params[:id])
-    users = user.update(users_params)
+    user.update(users_params)
   end
 
   #削除
   def destroy
-
+    user = User.find(params[:id])
+    user.destroy
   end
 
   #ストロングパラメータを定義
   private
     def users_params
-      params.require(:user).permit(:name, :age, :birthplace)
+      params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming)
     end
 
 end

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   #=> :id => params[:id]
 
   patch '/users/:id', to: 'users#update'
+  delete '/users/:id', to: 'users#destroy'
 
 
 end

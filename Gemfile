@@ -51,5 +51,9 @@ end
 gem 'simple_form'
 gem 'bootstrap-sass'
 
+gem 'bootswatch-rails'
+
 #画像アップロード用gem
+# Image Uploader
 gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'

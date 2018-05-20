@@ -4,7 +4,7 @@
   <p>#<%= post.user_id %></p>
   <p>コメント：<%= post.content %></p>
   <p>投稿写真：
-        <%= image_tag post.post_image_name.to_s %>
+    <%= image_tag @post.post_image_name_url(:thumb) %>
   </p>
   <p>ユーザー名：<%= @search_username %></p>
 <% end %>

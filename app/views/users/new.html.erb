@@ -1,15 +1,64 @@
-<h3>ユーザ新規作成画面</h3>
 
-  <%= simple_form_for @users, :url => {:action => :create} do |f| %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        ユーザー新規登録</h2>
 
-  <p><%= f.input :name %></p>
-  <p><%= f.input :age %></p>
-  <p><%= f.input :birthplace %></p>
+    <div class="well well-lg">
 
-  <!--  #as: :fileでアップロードフォームが作れる -->
-  <div class="form-group">
-  <%= f.input :image, as: :file %>
-  </div>
+        <%= simple_form_for @users, :url => {:action => :create} do |f| %>
 
-  <p><%= f.button :submit, "登録！", :class=>"btn" %></p>
+            <div class="form-group">
+              <%= f.label :name, "名前" %>
+              <%= f.text_field :name %></div>
+
+            <div class="form-group">
+              <!-- <%= f.label :age, "年齢" %> -->
+              <%= f.input :age, collection: 0..110, label: "年齢" %></div>
+
+            <div class="form-group">
+              <%= f.label :birthplace, "出身" %>
+              <%= f.text_field :birthplace %></div>
+
+
+            <!--  #as: :fileでアップロードフォームが作れる -->
+            <div class="form-group">
+            <%= f.input :image, as: :file %></div>
+
+
+
+    <!-- 詳細情報登録more_profile 折りたたみcollapse -->
+        <div class="form-group">
+          <a class="btn btn-info" data-toggle="collapse" href="#collapse_profile">
+          + Add More Profile</a></div>
+
+            <div class="collapse" id="collapse_profile">
+                    <!-- 性別ラジオボタン。 male=>male, female=>femaleとして登録 -->
+                    <div class="form-group">
+                    <%= f.input :gender, as: :radio_buttons, collection: [["male", "male"],["female", "female"]], item_wrapper_class: "inline" %></div>
+
+                    <!--date型で生年月日。 start_year,end_yearで西暦範囲を絞る -->
+                    <div class="form-group">
+                    <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year %></div>
+
+
+                    <!--元気？ラジオボタン。 Good => 1, Fine=>2.....として登録 -->
+                    <div class="form-group">
+                    <%= f.input :how_are_you, label: "How are you?",  as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %></div>
+
+                    <!-- プログラミングチェックボックス -->
+                    <div class="form-group">
+                    <%= f.input :programming, as: :check_boxes, collection: [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]] %></div>
+                </div><!-- collapse_profile -->
+
+
+
+            </div><!-- <div class="well well-lg"> -->
+            </div><!-- <div class="col-md-4"> -->
+
+  </div><!-- "row" -->
+</div><!-- "container-fluid" -->
+
+<%= f.button :submit, "Sign UP！", :class=>"btn btn-primary btn-lg center-block" %>
 <% end %>
