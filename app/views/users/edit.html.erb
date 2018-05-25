@@ -45,7 +45,12 @@
 
               <!-- プログラミングチェックボックス -->
               <div class="form-group">
-              <%= f.input :programming, as: :check_boxes, collection: [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]] %></div>
+
+<!--     ???
+                <h6>現在のチェック：</h6>
+                <p>@checked_prog</p> -->
+
+              <%= f.input :programming, as: :check_boxes, collection: [ ["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"] ] %></div>
 
 
               <%= f.button :submit, "更新する", :class=> "btn btn-info btn-lg" %>
