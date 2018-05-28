@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515124502) do
+ActiveRecord::Schema.define(version: 20180528125611) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180515124502) do
     t.string   "gender",      limit: 255
     t.date     "birth_date"
     t.string   "how_are_you", limit: 255
-    t.string   "programming", limit: 255
+    t.text     "programming", limit: 65535
   end
 
 end

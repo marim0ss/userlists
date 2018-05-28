@@ -57,7 +57,7 @@
                 <td><%= user.gender %></td>
                 <td><%= user.birth_date %></td>
                 <td><%= user.how_are_you %></td>
-                <td><%= user.programming %></td>
+                <td><%= user.programming.gsub(/"/, "").gsub(/\]/, "").gsub(/\[/, "") %></td>
 
                 <!-- <td><%= @checked_prog %></td> -->
 
