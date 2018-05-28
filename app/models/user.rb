@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
       if programming.nil?
         "NO DATA"
       else
-        programming.join(、)
+        programming.join("、")
       end
 
     end
