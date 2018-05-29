@@ -57,8 +57,11 @@
                   <td><%= user.gender %></td>
                   <td><%= user.birth_date %></td>
                   <td><%= user.how_are_you %></td>
-                  <!-- <td><%= user.programming.slice(/[\w+][\w+]/) %></td> -->
-                  <td><%= user.programming.delete("[]\"") %></td>
+                  <td>
+                    <% user.programming.each do |data| %>
+                      <%= data %>
+                    <% end %>
+                  </td>
                   <!-- <td><%= @checked_prog %></td> -->
                   <td><%= image_tag user.image_url(:thumb) %></td>
                   <td><%= link_to '編集', "/users/#{user.id}/edit", :class => "btn btn-info btn-sm "%></td>

@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     # ?? disp_progでNo method Error発生
     user = User.new
     user.disp_prog(params[:programming])
-    binding.pry
 
   end
 
