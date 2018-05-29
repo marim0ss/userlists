@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     # ?? disp_progでNo method Error発生
     user = User.new
     user.disp_prog(params[:programming])
+    binding.pry
 
   end
 
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
   #ストロングパラメータを定義
   private
       def users_params
-        params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, {:programming => []})
+        params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
       end
       # {:programming => []}  配列を登録できるように指定
 
