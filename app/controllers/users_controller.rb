@@ -49,6 +49,6 @@ class UsersController < ApplicationController
     def users_params
       params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
     end
-    # {:programming => []}  配列を登録できるように指定
+    # :programming => []  配列を登録できるように指定
 
 end

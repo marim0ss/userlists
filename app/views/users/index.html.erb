@@ -5,7 +5,6 @@
           <div class="panel-heading">
             <h1 class="panel-title">ユーザー一覧</h1>
           </div>
-
         <div class="panel-body">
           <% @users.each do |user| %>
             <p>名前：<%= user.name %></p>
@@ -18,10 +17,8 @@
           <% end %>
         </div>
       </div>
-
-        <p><%= link_to "Sign up", '/user/new', class: "btn btn-primary btn-lg" %></p>
-
-      </div><!-- <div class="col-md-3"> -->
+      <p><%= link_to "Sign up", '/user/new', class: "btn btn-primary btn-lg" %></p>
+    </div><!-- <div class="col-md-3"> -->
 
     <!-- 同じ内容を表で表示  詳細情報も表示する-->
     <div class="col-md-9">
@@ -54,7 +51,7 @@
                   <td><%= user.birth_date %></td>
                   <td><%= user.how_are_you %></td>
                   <td>
-                    <%= user.programming.delete_if(&:empty?).join("、") %>
+                    <%= user.programming_status %>
                   </td>
                   <!-- <td><%= @checked_prog %></td> -->
                   <td><%= image_tag user.image_url(:thumb) %></td>
