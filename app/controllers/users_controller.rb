@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   #一覧表示
-    def index
-      @users = User.all
-    end
+  def index
+    @users = User.all
+  end
 
   #新規作成
   def new
@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     User.create(users_params)
 
 # ?? disp_progでNo method Error発生
-    User.disp_prog(params[:programming])
+    user = User.new
+    user.disp_prog(params[:programming])
 
   end
 
