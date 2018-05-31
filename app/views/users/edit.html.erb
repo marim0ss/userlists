@@ -43,15 +43,10 @@
               <div class="form-group">
               <%= f.input :how_are_you, label: "How are you?",  as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %></div>
 
-              <!-- プログラミングチェックボックス -->
+              <!-- プログラミングチェックボックス 書き方変更-->
               <div class="form-group">
-
-<!--     ???
-                <h6>現在のチェック：</h6>
-                <p>@checked_prog</p> -->
-
-              <%= f.input :programming, as: :check_boxes, collection: [ ["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"] ] %></div>
-
+                  <%= f.collection_check_boxes :programming, [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]], :first, :last %>
+              </div>
 
               <%= f.button :submit, "更新する", :class=> "btn btn-info btn-lg" %>
 

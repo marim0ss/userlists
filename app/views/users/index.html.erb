@@ -54,8 +54,8 @@
                   <td><%= user.birth_date %></td>
                   <td><%= user.how_are_you %></td>
                   <td>
-                    <% user.programming.each do |data| %>
-                      <%= data %>
+                    <%= user.programming.each do |data| %>
+                       <%= data %>
                     <% end %>
                   </td>
                   <!-- <td><%= @checked_prog %></td> -->
