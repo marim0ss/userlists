@@ -9,15 +9,18 @@
 
 
                 <div class="form-group">
-                  <%= f.label :name, "Name" %>
-                  <%= f.text_field :name %></div>
+                    <%= f.label :name, "Name" %>
+                    <%= f.text_field :name %>
+                </div>
 
                 <div class="form-group">
-                  <%= f.input :age, collection: 0..110, label: "Age" %></div>
+                    <%= f.input :age, collection: 0..110, label: "Age" %>
+                </div>
 
                 <div class="form-group">
-                  <%= f.label :name, "Birth Place" %>
-                  <%= f.text_field :birthplace %></div>
+                    <%= f.label :name, "Birth Place" %>
+                    <%= f.text_field :birthplace %>
+                </div>
 
 
                 <!--  #as: :fileでアップロードフォームが作れる -->
@@ -25,31 +28,34 @@
                   <h6>現在の画像：</h6>
                   <p><%= image_tag @user.image_url(:thumb) %></p>
 
-                <%= f.input :image, as: :file %>
-
+                  <%= f.input :image, as: :file %>
               </div>
 
 
       <!-- 詳細情報欄  ------------------------------------------------------------------- -->
               <div class="form-group">
-              <%= f.input :gender, as: :radio_buttons, collection: [["male", "male"],["female", "female"]], item_wrapper_class: "inline" %></div>
+                  <%= f.input :gender, as: :radio_buttons, collection: [["male", "male"],["female", "female"]], item_wrapper_class: "inline" %>
+              </div>
 
               <!--date型で生年月日。 start_year,end_yearで西暦範囲を絞る -->
               <div class="form-group">
-              <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year %></div>
+                  <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year %>
+              </div>
 
 
               <!--元気？ラジオボタン。 Good => 1, Fine=>2.....として登録 -->
               <div class="form-group">
-              <%= f.input :how_are_you, label: "How are you?",  as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %></div>
+                  <%= f.input :how_are_you, label: "How are you?",  as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %>
+              </div>
 
-              <!-- プログラミングチェックボックス 書き方変更-->
+              <!-- プログラミングチェックボックス フォームの書き方変更-->
               <div class="form-group">
-                  <%= f.collection_check_boxes :programming, [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]], :first, :last %>
+                  <p><%= f.label :name, "Programming" %></p>
+                    <%= f.collection_check_boxes :programming, [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]], :first, :last %>
               </div>
 
               <%= f.button :submit, "更新する", :class=> "btn btn-info btn-lg" %>
-
+                  <!-- ↑登録ボタンはsimple form forの中に入れる -->
             <% end %>
 
 
