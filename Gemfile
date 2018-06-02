@@ -59,3 +59,10 @@ gem 'bootswatch-rails'
 # Image Uploader
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
+
+#active_decorator導入
+gem 'active_decorator'
+
+# active admin導入
+gem 'activeadmin'
+gem 'devise'

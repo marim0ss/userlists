@@ -15,8 +15,8 @@ class UsersController < ApplicationController
     User.create(users_params)
 
     # ?? disp_progでNo method Error発生
-    user = User.new
-    user.disp_prog(params[:programming])
+    # user = User.new
+    # user.disp_prog(params[:programming])
 
   end
 
