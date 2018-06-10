@@ -15,78 +15,65 @@
 </head>
 
 <body>
-  <!-- Bootstrapでナビゲーションバーを実装 navbar-fixed-top:上部に固定-->
-  <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+  <!-- boot4でのNavi bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-      <!-- サイトタイトル部分 -->
+    <!-- サイトタイトル部分 -->
       <a class="navbar-brand" href="/user/index">
         <!-- aタグを挟んでサイトサイトタイトルを入れられる。↓のように画像でもok -->
-      <img alt="Brand" src="/ペストマスク赤.png" style="height: 20px;"></a>
-    </div>
+        <img alt="Brand" src="/ペストマスク赤.png" style="height: 20px;">
+      </a>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">メニューA<span class="sr-only">(current)</span></a></li>
-        <li><a href="/user/index">ユーザー一覧へ</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown1 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/user/new">ユーザー新規登録</a></li>
-            <li><a href="/posts/index">投稿一覧を見る</a></li>
-            <li><a href="/posts/new">新規投稿</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <!-- 検索窓 form -->
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索キーワード">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/user/index">ユーザー一覧へ<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/user/new">ユーザー新規登録</a>
+          <a class="dropdown-item" href="/posts/index">投稿一覧を見る</a>
+          <a class="dropdown-item" href="/posts/new">新規投稿</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-        <button type="submit" class="btn btn-default">検索</button>
-      </form>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
 
-      <!-- ナビバー 右寄せの項目 -->
-      <!-- ユーザー新規作成画面へ -->
-      <ul class="nav navbar-nav navbar-right">
-        <!-- class="navbar-text"を指定して、p要素内のテキストにaリンク -->
-        <li><p class="navbar-text">ようこそ<a href="/user/new" class="navbar-link">ゲスト</a>さん</p></li>
+      <li class="nav-item">
+        <p class="navbar-text">ようこそ<a href="/user/new" class="navbar-link">ゲスト</a>さん</p>
+      </li>
 
-        <!-- ドロップダウン２ -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown2 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+    </ul><!-- ul class="navbar-nav mr-auto -->
 
-     <!-- ナビバーの中のボタン設置。classにnavbar-btnを指定すること -->
-     <a class="btn btn-info navbar-btn" href="/user/new" role="button">Sign in</a>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<!-- ナビバーに追加
-  <a href="/user/index">ユーザー一覧</a>
-  <a href="/user/new">ユーザー新規作成</a> -->
+    <!-- 検索窓 form -->
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="検索キーワードを入力" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
+
+   <!-- ナビバーの中のボタン設置。classにnavbar-btnを指定すること -->
+   <a class="btn btn-info navbar-btn" href="/user/new" role="button">Sign in</a>
+  </div><!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+
+
+</nav><!-- boot4のNavibar終わり -->
+
+
 <%= yield %>
 
 </body>

@@ -14,4 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// bootstrap4を導入
+//= require jquery3
+//= require popper
 //= require bootstrap-sprockets
