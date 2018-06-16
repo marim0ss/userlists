@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    post1 = Post.new
-    @search_username = post1.search_username
+    # post1 = Post.new
+    # @search_username = post1.search_username
 
   end
 
