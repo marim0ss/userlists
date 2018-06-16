@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   post '/posts/new', to: 'posts#create'
   #
   # #bootstrapの導入
-  # root to: 'users#index'
+  root to: 'users#index'
+  resources :users
   # # get 'users/index'
   # get '/user/index', to: 'users#index'
   #
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   # patch '/users/:id', to: 'users#update'
   # delete '/users/:id', to: 'users#destroy'
 
-  resources :user
 # => index, show, new, create, edit, update, destroy
 
 end
