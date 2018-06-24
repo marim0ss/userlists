@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   mount_uploader :image, PictureUploader
 
+  has_many :posts
+
   #処理をモデル側で行う
   # food2参照    コントローラ側で引数指定したを受け取って使用
     def disp_prog(programming)

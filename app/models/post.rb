@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  belongs_to :user
+
   # mount_uploader :post_image_name, PictureUploader
 
   def search_username

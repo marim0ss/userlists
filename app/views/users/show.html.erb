@@ -1,0 +1,5 @@
+<p>名前：<%= @user.name %></p>
+<p>年齢：<%= @user.age %></p>
+<p>出身：<%= @user.birthplace %></p>
+<%= link_to '新規投稿', new_user_post_path(@user) %>
+<%= link_to '一覧', user_posts_path(@user) %>
