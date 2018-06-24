@@ -1,4 +1,6 @@
-<h1>投稿内容一覧</h1>
+<% provide(:title, "投稿内容一覧") %>
+
+<h3>投稿内容一覧</h3>
 
 <% @posts.each do |post| %>
   <p>#<%= post.user_id %></p>

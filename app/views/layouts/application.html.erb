@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Userlists</title>
+  <title><%= yield(:title) %> | Userlists App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -19,9 +19,9 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
 
     <!-- サイトタイトル部分 -->
-      <%= link_to users_path,  method: :get do %>
-            <!-- <a class="navbar-brand" href="/user/index"> -->
-              <img alt="Brand" src="/ペストマスク赤.png" style="height: 20px;">
+      <!-- <a class="navbar-brand" href="/user/index"> を下記に書き換え-->
+      <%= link_to users_path, class: "navbar-brand", method: :get do %>
+              <img src="/red-plague-mask.png" width="30" height="30" alt="">
       <% end %>
     <!-- ナビバーのメニューボタン -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +31,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="/users/index">ユーザー一覧へ<span class="sr-only">(current)</span></a>
-                <%= link_to 'ユーザー一覧へ', users_path %>
+                <!-- <a class="nav-link" href="/users">ユーザー一覧へ<span class="sr-only">(current)</span></a> を下記に書き換え-->
+                <%= link_to 'ユーザー一覧へ', users_path, class: "nav-link" %>
               </li>
 
               <li class="nav-item">
@@ -45,11 +45,17 @@
                     Dropdown
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/user/new">ユーザー新規登録</a>
-                    <a class="dropdown-item" href="/posts/index">投稿一覧を見る</a>
-                    <a class="dropdown-item" href="/posts/new">新規投稿</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <!-- <a class="dropdown-item" href="/user/new">ユーザー新規登録</a> 下記に書き換え-->
+                    <%= link_to 'ユーザー新規登録', new_user_path, class: "dropdown-item" %>
+
+                    <!-- <a class="dropdown-item" href="/posts/index">投稿一覧を見る</a> を下記に書き換え-->
+                    <%= link_to '投稿一覧を見る', posts_path, class: "dropdown-item" %>
+
+                    <!-- <a class="dropdown-item" href="/posts/new">新規投稿</a> を下記に書き換え-->
+                    <%= link_to '新規投稿', new_post_path, class: "dropdown-item" %>
+
+                    <div class="dropdown-divider"></div><!-- ドロップダウン内の区切り線 -->
+                    <%= link_to 'Something else here', "#", class: "dropdown-item" %>
                   </div>
               </li>
 
@@ -59,7 +65,10 @@
               </li>
 
               <li class="nav-item">
-                <p class="navbar-text">ようこそ<a href="/user/new" class="navbar-link">ゲスト</a>さん</p>
+                <!-- <p class="navbar-text">ようこそ<a href="/user/new" class="navbar-link">ゲスト</a>さん</p>下記に書き換え-->
+                  <p class="navbar-text">ようこそ
+                    <%= link_to 'ゲスト', new_user_path, class: "navbar-link" %>
+                  さん</p>
               </li>
           </ul><!-- ul class="navbar-nav mr-auto -->
 
@@ -72,7 +81,9 @@
 
          <!-- ナビバーの中のボタン設置。classにnavbar-btnを指定すること -->
           <div>
-            <a class="btn btn-warning navbar-btn" href="/user/new" role="button">Sign in</a>
+            <!-- <a class="btn btn-warning navbar-btn" href="/user/new" role="button">Sign in</a> -->
+            <!-- 下記に書き換え -->
+            <%= link_to 'Sign UP', new_user_path, class: "btn btn-warning navbar-btn" %>
           </div>
         </div><!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
   </nav><!-- boot4のNavibar終わり -->

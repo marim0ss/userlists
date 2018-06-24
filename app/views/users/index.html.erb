@@ -1,11 +1,12 @@
+<% provide(:title, "トップ") %>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h1 class="panel-title">ユーザー一覧</h1>
+          <h3 class="panel-title">ユーザー一覧</h3>
         </div>
-
+        <hr />
         <div class="panel-body">
           <% @users.each do |user| %>
           <p>名前：<%= user.name %></p>
@@ -19,29 +20,25 @@
           </div>
         </div>
 
-        <p><%= link_to "Sign up", '/user/new', class: "btn btn-warning btn-lg" %></p>
-
+        <p><%= link_to "Sign up", new_user_path, class: "btn btn-warning btn-lg" %></p>
       </div><!-- <div class="col-md-3"> -->
 
         <!-- 同じ内容を表で表示  詳細情報も表示する-->
         <div class="col-md-9">
-
           <div class="panel panel-primary">
-            <div class="panel-heading">
-              ユーザー一覧
-            </div>
-
             <table class="table table-striped">
               <thead>
-                <tr>
-                  <th>名前</th>
-                  <th>年齢</th>
-                  <th>出身</th>
-                  <th>gender</th>
-                  <th>birth_date</th>
-                  <th>How are you?</th>
-                  <th>programming</th>
-                  <th>image</th>
+                <tr class="bg-info text-white">
+                  <th scope="col">名前</th>
+                  <th scope="col">年齢</th>
+                  <th scope="col">出身</th>
+                  <th scope="col">gender</th>
+                  <th scope="col">birth_date</th>
+                  <th scope="col">How are you?</th>
+                  <th scope="col">programming</th>
+                  <th scope="col">image</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -64,7 +61,8 @@
                 <% end %>
               </tbody>
             </table>
-          </div>
+          </div><!-- <div class="panel panel-primary"> -->
         </div><!-- <div class="col-md-9"> -->
-        </div><!-- <div class="row"> -->
-        </div><!-- <div class="container-fluid"> -->
+
+  </div><!-- <div class="row"> -->
+</div><!-- <div class="container-fluid"> -->
