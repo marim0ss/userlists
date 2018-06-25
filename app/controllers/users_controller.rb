@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   #一覧表示
   def index
     @users = User.all
+    @posts = Post.all
   end
 
   #新規作成
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
 
   #詳細表示
   def show
-
+    @user = User.find(params[:id])
   end
 
   #編集
