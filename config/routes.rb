@@ -2,14 +2,13 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  resources :posts
 
 
   root to: 'users#index'
 
-  #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
-  resources :users do
-    resources :posts
-  end
+  #resourcesを使ってルートを記述
+  resources :users
   # => index, show, new, create, edit, update, destroyのアクションに対応させることができる
 
 
