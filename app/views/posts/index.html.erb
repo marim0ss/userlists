@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 <h1>ID No.<%= @user.id %> <%= @user.name %>の投稿内容一覧</h1>
+=======
+<% provide(:title, "投稿内容一覧") %>
+
+<h3>投稿内容一覧</h3>
+
+>>>>>>> Add-boot4-and-Change-navibar
 <% @posts.each do |post| %>
   <p>コメント：<%= post.content %></p>
   <p>投稿写真：

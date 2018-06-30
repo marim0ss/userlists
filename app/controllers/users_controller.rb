@@ -1,15 +1,20 @@
 class UsersController < ApplicationController
   #一覧表示
+<<<<<<< HEAD
     def index
       @users = User.all
       @posts = Post.all
     end
+=======
+  def index
+    @users = User.all
+    @posts = Post.all
+  end
+>>>>>>> Add-boot4-and-Change-navibar
 
   #新規作成
   def new
     @users = User.new
-
-
   end
 
   #新規作成完了
@@ -17,8 +22,9 @@ class UsersController < ApplicationController
     #createアクションでstrong parameter のメソッドを呼び出す
     User.create(users_params)
 
-# ?? disp_progを使えばいいのか？でもこれだとエラーになる
-    # User.disp_prog(params[:programming])
+    # ?? disp_progでNo method Error発生
+    # user = User.new
+    # user.disp_prog(params[:programming])
 
   end
 
@@ -48,9 +54,9 @@ class UsersController < ApplicationController
 
   #ストロングパラメータを定義
   private
-      def users_params
-        params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, {:programming => []})
-      end
-      # {:programming => []}  配列を登録できるように指定
+    def users_params
+      params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
+    end
+    # {:programming => []}  配列を登録できるように指定
 
 end

@@ -14,8 +14,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -34,7 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do
@@ -49,7 +49,8 @@ end
 
 
 gem 'simple_form'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 gem 'bootswatch-rails'
 
@@ -57,3 +58,10 @@ gem 'bootswatch-rails'
 # Image Uploader
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
+
+#active_decorator導入
+gem 'active_decorator'
+
+# active admin導入
+gem 'activeadmin'
+gem 'devise'
