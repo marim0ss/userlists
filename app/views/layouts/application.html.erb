@@ -85,69 +85,6 @@
         </div><!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
   </nav><!-- boot4のNavibar終わり -->
 
-
-<<<<<<< HEAD
-      <!-- サイトタイトル部分 -->
-      <a class="navbar-brand" href="/user/index">
-        <!-- aタグを挟んでサイトサイトタイトルを入れられる。↓のように画像でもok -->
-      <img alt="Brand" src="/ペストマスク赤.png" style="height: 20px;"></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">メニューA<span class="sr-only">(current)</span></a></li>
-        <li><%= link_to 'ユーザー一覧へ', users_path %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown1 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'ユーザー新規登録', new_user_path %></li>
-            <li><a href="/posts/index">投稿一覧を見る</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <!-- 検索窓 form -->
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索キーワード">
-        </div>
-        <button type="submit" class="btn btn-default">検索</button>
-      </form>
-
-      <!-- ナビバー 右寄せの項目 -->
-      <!-- ユーザー新規作成画面へ -->
-      <ul class="nav navbar-nav navbar-right">
-        <!-- class="navbar-text"を指定して、p要素内のテキストにaリンク -->
-        <li><p class="navbar-text">ようこそ<a href="/user/new" class="navbar-link">ゲスト</a>さん</p></li>
-
-        <!-- ドロップダウン２ -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown2 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-
-     <!-- ナビバーの中のボタン設置。classにnavbar-btnを指定すること -->
-     <a class="btn btn-info navbar-btn" href="/user/new" role="button">Sign in</a>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<!-- ナビバーに追加
-  <a href="/user/index">ユーザー一覧</a>
-  <a href="/user/new">ユーザー新規作成</a> -->
-=======
->>>>>>> Add-boot4-and-Change-navibar
 <%= yield %>
 
 </body>

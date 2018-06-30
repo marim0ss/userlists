@@ -1,16 +1,10 @@
 class UsersController < ApplicationController
   #一覧表示
-<<<<<<< HEAD
-    def index
-      @users = User.all
-      @posts = Post.all
-    end
-=======
+
   def index
     @users = User.all
     @posts = Post.all
   end
->>>>>>> Add-boot4-and-Change-navibar
 
   #新規作成
   def new

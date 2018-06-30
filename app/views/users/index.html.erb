@@ -9,96 +9,18 @@
         <hr />
         <div class="panel-body">
           <% @users.each do |user| %>
-<<<<<<< HEAD
-
-            <p>名前：<%= user.name %></p>
-            <p>年齢：<%= user.age %></p>
-            <p>出身：<%= user.birthplace %></p>
-            <p><%= image_tag user.image_url(:thumb) %></p>
-
-            <%= link_to '詳細', user_path(user), class: "btn btn-info btn-sm"  %>
-            <p><%= link_to '編集', edit_user_path(user), class: "btn btn-info btn-sm"  %>
-            <%= link_to '削除', user_path(user), method: :delete, class: "btn btn-primary btn-sm"  %></p>
-=======
           <p>名前：<%= user.name %></p>
           <p>年齢：<%= user.age %></p>
           <p>出身：<%= user.birthplace %></p>
           <p><%= image_tag user.image_url(:thumb) %></p>
           <p><%= link_to '編集', edit_user_path(user), class: "btn btn-info btn-sm"  %>
             <%= link_to '削除', user_path(user), method: :delete, class: "btn btn-dark btn-sm"  %></p>
->>>>>>> Add-boot4-and-Change-navibar
             <hr>
             <% end %>
           </div>
         </div>
-<<<<<<< HEAD
-      </div>
-
-        <p><%= link_to "Sign up", new_user_path, class: "btn btn-primary btn-lg" %></p>
-=======
->>>>>>> Add-boot4-and-Change-navibar
-
         <p><%= link_to "Sign up", new_user_path, class: "btn btn-warning btn-lg" %></p>
       </div><!-- <div class="col-md-3"> -->
-
-<<<<<<< HEAD
-
-    <!-- 同じ内容を表で表示  詳細情報も表示する-->
-    <div class="col-md-9">
-
-      <div class="panel panel-primary">
-          <div class="panel-heading">
-            ユーザー一覧
-          </div>
-
-          <table class="table table-striped">
-          <thead>
-              <tr>
-                <th>名前</th>
-                <th>年齢</th>
-                <th>出身</th>
-                <th>gender</th>
-                <th>birth_date</th>
-                <th>How are you?</th>
-                <th>programming</th>
-                <th>image</th>
-              </tr>
-          </thead>
-          <tbody>
-              <% @users.each do |user| %>
-              <tr>
-                <td><%= user.name %></td>
-                <td><%= user.age %></td>
-                <td><%= user.birthplace %></td>
-                <td><%= user.gender %></td>
-                <td><%= user.birth_date %></td>
-                <td><%= user.how_are_you %></td>
-                <td><%= user.programming %></td>
-
-                <!-- <td><%= @checked_prog %></td> -->
-
-                <td><%= image_tag user.image_url(:thumb) %></td>
-
-                <td><%= link_to '編集', edit_user_path(user), :class => "btn btn-info btn-sm "%></td>
-                <td><%= link_to '削除', user_path(user), method: :delete, class: "btn btn-primary btn-sm" %></td>
-                </tr>
-              <% end %>
-          </tbody>
-          </table>
-      </div>
-    </div><!-- <div class="col-md-9"> -->
-    <dev class="col-md-6">
-      <h1>投稿内容一覧</h1>
-      <% @posts.each do |post| %>
-        <p>#<%= post.user_id %></p>
-        <p>コメント：<%= post.content %></p>
-        <p>投稿写真：
-          <%#= image_tag @post.post_image_name_url(:thumb) %>
-        </p>
-        <p>ユーザー名：<%= @search_username %></p>
-      <% end %>
-    </dev>
-=======
         <!-- 同じ内容を表で表示  詳細情報も表示する-->
         <div class="col-md-10">
           <div class="panel panel-primary">
@@ -142,7 +64,6 @@
           </div><!-- <div class="panel panel-primary"> -->
         </div><!-- <div class="col-md-9"> -->
 
->>>>>>> Add-boot4-and-Change-navibar
   </div><!-- <div class="row"> -->
 </div><!-- <div class="container-fluid"> -->
 

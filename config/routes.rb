@@ -5,11 +5,6 @@ Rails.application.routes.draw do
 
 
   root to: 'users#index'
-<<<<<<< HEAD
-  resources :users do
-    resources :posts
-  end
-=======
 
   #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
   resources :users do
@@ -41,6 +36,5 @@ Rails.application.routes.draw do
   # post '/posts/new', to: 'posts#create'
   #
 
->>>>>>> Add-boot4-and-Change-navibar
 
 end
