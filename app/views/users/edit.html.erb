@@ -27,7 +27,7 @@
                 <!--  #as: :fileでアップロードフォームが作れる -->
                 <div class="form-group">
                   <h6>現在の画像：</h6>
-                  <p><%= image_tag @user.image_url(:thumb) %></p>
+                  <p><%= image_tag @user.image_url(:thumb) if @user.image.present? %></p>
 
                   <%= f.input :image, as: :file %>
               </div>
