@@ -12,7 +12,7 @@
           <p>名前：<%= user.name %></p>
           <p>年齢：<%= user.age %></p>
           <p>出身：<%= user.birthplace %></p>
-          <p><%= image_tag user.image_url(:thumb) %></p>
+          <p><%= image_tag user.image_url(:thumb) if user.image.present? %></p>
           <p><%= link_to '編集', edit_user_path(user), class: "btn btn-info btn-sm"  %>
             <%= link_to '削除', user_path(user), method: :delete, class: "btn btn-dark btn-sm"  %></p>
             <hr>
@@ -55,7 +55,7 @@
                     <%= user.programming_status %>
                   </td>
                   <!-- <td> @disp_prog </td> -->
-                  <td><%= image_tag user.image_url(:thumb) %></td>
+                  <td><%= image_tag user.image_url(:thumb) if user.image.present? %></td>
                   <td><%= link_to '詳細', user_path(user), class: "btn btn-light btn-sm" %></td>
                   <td><%= link_to '編集', edit_user_path(user), :class => "btn btn-info btn-sm "%></td>
                   <td><%= link_to '削除', user_path(user), method: :delete, class: "btn btn-dark btn-sm" %></td>
