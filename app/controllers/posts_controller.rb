@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @posts = Post.where(user_id: params[:user_id])
       #params[:user_id] ...user_idのパラメータが飛んできたのを
       # where(user_id   )で探す
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
     #ここでもuser_idを活用してユーザーの情報を取ってくる
   end
 
