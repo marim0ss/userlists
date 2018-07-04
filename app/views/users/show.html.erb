@@ -1,0 +1,12 @@
+<% provide(:title, "ユーザー情報の詳細") %>
+
+<h3>ユーザー情報の詳細</h3>
+<p>名前：<%= @user.name %></p>
+<p>年齢：<%= @user.age %></p>
+<p>出身：<%= @user.birthplace %></p>
+<p><%= image_tag @user.image_url(:thumb) if @user.image.present? %></p>
+
+<p><%= link_to '新規投稿する', new_user_post_path(@user), class: "btn btn-info btn-lg" %></p>
+<p><%= link_to 'あなたの投稿一覧', user_posts_path(@user), class: "btn btn-outline-warning btn-lg" %></p>
+
+<!-- users/show -->
