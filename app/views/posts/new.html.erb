@@ -20,11 +20,11 @@
           <%= f.text_field :content, as: :textarea, :class=>"form-control-lg" %>
         </div>
 
-        <div class="form-group">Posted By：</div>
+        <div class="form-group">Posted By：<%= @user.name %></div>
 
 
         <%= f.button :submit, "投稿！", :class=>"btn btn-info btn-lg" %>
         <% end %>
-      </div>
     </div>
   </div>
+</div>

@@ -1,10 +1,13 @@
 <% provide(:title, "投稿内容一覧") %>
 
-<h3>投稿内容一覧</h3>
+<h3><%= @user.name %>の投稿内容一覧</h3>
+<p>ID: <%= @user.id %></p>
 
-<% @posts.each do |post| %>
-  <p>コメント：<%= post.content %></p>
+<div class="col-md-6">
+  <h3>投稿内容一覧</h3>
+  <% @posts.each do |post| %>
+  <p><%= post.content %></p>
   <p>投稿写真：
-    <%= image_tag @post.post_image_name_url(:thumb) %>
-  </p>
-<% end %>
+  <%= image_tag @post.post_image_name_url(:thumb) if @user.image.present? %></p>
+  <% end %>
+</div>
