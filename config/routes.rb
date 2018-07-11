@@ -3,14 +3,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
 
-
-  # postモデル
-  # get '/posts/index', to: 'posts#index'
-  # get '/posts/new', to: 'posts#new'
-  # post '/posts/new', to: 'posts#create'
-
-
-
   root to: 'users#index'
 
   #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
