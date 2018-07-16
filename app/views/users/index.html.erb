@@ -13,7 +13,7 @@
             <th scope="col">birth_date</th>
             <th scope="col">How are you?</th>
             <th scope="col">programming</th>
-            <th scope="col">image</th>
+            <th scope="col">your image</th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -27,6 +27,7 @@
             <td><%= user.birthplace %></td>
             <td><%= user.gender %></td>
             <td><%= user.birth_date %></td>
+            <!-- how_are_youカラム1,2,,に合わせて対応画像を表示 -->
             <td><% user.how_are_you %>
               <% case user.how_are_you %>
                 <% when "1" then %>
