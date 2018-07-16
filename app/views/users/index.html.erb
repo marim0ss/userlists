@@ -27,7 +27,20 @@
             <td><%= user.birthplace %></td>
             <td><%= user.gender %></td>
             <td><%= user.birth_date %></td>
-            <td><%= user.how_are_you %></td>
+            <td><% user.how_are_you %>
+              <% case user.how_are_you %>
+                <% when "1" then %>
+                <%= image_tag '/laugh-squint-regular.svg', :size => '30x20' %>
+                <% when "2" then %>
+                <%= image_tag '/grin-regular.svg', :size => '30x20' %>
+                <% when "3" then %>
+                <%= image_tag '/meh-blank-regular.svg', :size => '30x20' %>
+                <% when "4" then %>
+                <%= image_tag '/frown-regular.svg', :size => '30x20' %>
+                <% else %>
+                <%= user.how_are_you %>
+              <% end %>
+            </td>
             <td>
               <%= user.programming_status %>
             </td>

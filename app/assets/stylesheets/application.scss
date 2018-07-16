@@ -78,9 +78,12 @@
 .user-table{
   padding: 40px 20px 30px 20px;
 }
-
-.menu-content{
-  // margin: auto;
+//divなどを中央配置。ナビバー分上の余白を空けた
+.center-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
 }
 // fontawesomeのアイコン
 .fab{

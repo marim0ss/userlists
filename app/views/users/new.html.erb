@@ -1,7 +1,9 @@
 <% provide(:title, "New") %>
-<div class="card" style="width: 30rem;">
-    <h2 class="card-header">ユーザー新規登録</h2>
 
+<div class="container-fluid center-content">
+
+<div class="card" style="width: 30rem;">
+  <h2 class="card-header"><i class="fas fa-user-plus">ユーザー新規登録</i></h2>
   <div class="card-body">
         <%= simple_form_for @users, :url => {:action => :create} do |f| %>
           <div class="form-group">
@@ -52,4 +54,5 @@
           <%= f.button :submit, "Sign UP！", :class=>"btn btn-primary btn-lg center-block" %>
         <% end %>
   </div>
+</div>
 </div>
