@@ -1,70 +1,59 @@
-<% provide(:title, "トップ") %>
+<% provide(:title, "User一覧") %>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">ユーザー一覧</h3>
-        </div>
-        <hr />
-        <div class="panel-body">
+  <div class="user-table">
+    <h1><i class="far fa-address-card">User一覧</i></h1>
+    <div class="panel panel-primary">
+      <table class="table table-striped">
+        <thead>
+          <tr class="bg-info text-white">
+            <th scope="col">名前</th>
+            <th scope="col">年齢</th>
+            <th scope="col">出身</th>
+            <th scope="col">gender</th>
+            <th scope="col">birth_date</th>
+            <th scope="col">How are you?</th>
+            <th scope="col">programming</th>
+            <th scope="col">your image</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
           <% @users.each do |user| %>
-          <p>名前：<%= user.name %></p>
-          <p>年齢：<%= user.age %></p>
-          <p>出身：<%= user.birthplace %></p>
-          <p><%= image_tag user.image_url(:thumb) if user.image.present? %></p>
-          <p><%= link_to '編集', edit_user_path(user), class: "btn btn-info btn-sm"  %>
-            <%= link_to '削除', user_path(user), method: :delete, class: "btn btn-dark btn-sm"  %></p>
-            <hr>
-            <% end %>
-          </div>
-        </div>
-
-        <p><%= link_to "Sign up", new_user_path, class: "btn btn-warning btn-lg" %></p>
-      </div><!-- <div class="col-md-3"> -->
-
-        <!-- 同じ内容を表で表示  詳細情報も表示する-->
-        <div class="col-md-10">
-          <div class="panel panel-primary">
-            <table class="table table-striped">
-              <thead>
-                <tr class="bg-info text-white">
-                  <th scope="col">名前</th>
-                  <th scope="col">年齢</th>
-                  <th scope="col">出身</th>
-                  <th scope="col">gender</th>
-                  <th scope="col">birth_date</th>
-                  <th scope="col">How are you?</th>
-                  <th scope="col">programming</th>
-                  <th scope="col">image</th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @users.each do |user| %>
-                <tr>
-                  <td><%= user.name %></td>
-                  <td><%= user.age %></td>
-                  <td><%= user.birthplace %></td>
-                  <td><%= user.gender %></td>
-                  <td><%= user.birth_date %></td>
-                  <td><%= user.how_are_you %></td>
-                  <td>
-                    <%= user.programming_status %>
-                  </td>
-                  <!-- <td> @disp_prog </td> -->
-                  <td><%= image_tag user.image_url(:thumb) if user.image.present? %></td>
-                  <td><%= link_to '詳細', user_path(user), class: "btn btn-light btn-sm" %></td>
-                  <td><%= link_to '編集', edit_user_path(user), :class => "btn btn-info btn-sm "%></td>
-                  <td><%= link_to '削除', user_path(user), method: :delete, class: "btn btn-dark btn-sm" %></td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div><!-- <div class="panel panel-primary"> -->
-        </div><!-- <div class="col-md-9"> -->
-
-  </div><!-- <div class="row"> -->
-</div><!-- <div class="container-fluid"> -->
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.age %></td>
+            <td><%= user.birthplace %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.birth_date %></td>
+            <!-- how_are_youカラム1,2,,に合わせて対応画像を表示 -->
+            <td><% user.how_are_you %>
+              <% case user.how_are_you %>
+                <% when "1" then %>
+                <%= image_tag '/laugh-squint-regular.svg', :size => '30x20' %>
+                <% when "2" then %>
+                <%= image_tag '/grin-regular.svg', :size => '30x20' %>
+                <% when "3" then %>
+                <%= image_tag '/meh-blank-regular.svg', :size => '30x20' %>
+                <% when "4" then %>
+                <%= image_tag '/frown-regular.svg', :size => '30x20' %>
+                <% else %>
+                <%= user.how_are_you %>
+              <% end %>
+            </td>
+            <td>
+              <%= user.programming_status %>
+            </td>
+            <!-- <td> @disp_prog </td> -->
+            <td><%= image_tag user.image_url(:thumb) if user.image.present? %></td>
+            <td><%= link_to '詳細', user_path(user), class: "btn btn-light btn-sm" %></td>
+            <td><%= link_to '編集', edit_user_path(user), :class => "btn btn-info btn-sm "%></td>
+            <td><%= link_to '削除', user_path(user), method: :delete, class: "btn btn-dark btn-sm" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!-- <div class="panel panel-primary"> -->
+    </div><!-- user-table -->
+  </div><!-- <div class="container-fluid"> -->

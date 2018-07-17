@@ -25,6 +25,7 @@
 // @import "base";
 
 
+
 // .form-input {
   label {
     margin: 2px 10px;
@@ -70,4 +71,71 @@
   width: 300px;
   opacity: 0.5;
   display: block;
+}
+
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jumbotron {
+  background-image: url(gahag-1920.jpg);
+  background-size: cover;
+  background-position: center 60%;
+}
+
+.jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 0;
+}
+
+.display-4{
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.top-bgtext{
+  color: white;
+}
+
+.top-text{
+  color: white;
+  margin-top: 50px;
+}
+
+// user-tableクラス
+.user-table{
+  padding: 40px 20px 30px 20px;
+}
+//divなどを中央配置。ナビバー分上の余白を空けた
+.center-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+// fontawesomeのアイコン
+.fab{
+  display: inline-block;
+  // font: normal normal normal 14px/1 FontAwesome;
+  font-size: 20px;
+  color: #3aabd2;
+  margin: auto;
+}
+.far{
+  margin-right: 10px;
+}
+
+
+// user#showのボタンの横幅を合わせる
+.show-btn {
+  width: 200px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
