@@ -6,9 +6,7 @@ gem 'rails', '5.0.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.5'
 
-group :production do
-  gem 'pg'
-end
+gem 'pg', '~> 0.19.0', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
