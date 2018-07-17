@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: userlists_production
-  username: userlists
-  password: <%= ENV['USERLISTS_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
