@@ -74,6 +74,35 @@
   display: block;
 }
 
+
+.jumbotron {
+	padding-top: 0px;
+	// background: url(gahag-1920.jpg);
+  background:  url(hoshizora.jpg);
+	background-size: cover;
+	// background-position: 20% 50%;
+	height: 800px;
+}
+.top-wrap{
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.display-4 {
+  // font-size: 300px;
+  // font-weight: 300;
+  // line-height: 1.2;
+}
+
+.top-big-text{
+  color: white;
+}
+.top-text{
+  color: white;
+  margin-top: 50px;
+}
+
 // user-tableクラス
 .user-table{
   padding: 40px 20px 30px 20px;
