@@ -139,3 +139,29 @@
   margin-top: 10px;
   margin-right: 10px;
 }
+
+.btn-ghost{
+  // 背景を透過
+  background: transparent;
+  background-color: rgba(43, 59, 114, 0.5);
+}
+
+// ゴーストボタンと組み合わせた場合のテキスト色(btn-successとbtn-ghostをつけると指定した色になる)
+.btn-ghost.btn-success{
+  color: rgb(234, 228, 167);
+}
+// ホバー時の文字色と背景色
+.btn-ghost.btn-success:hover{
+  color: #fff;
+  background-color: rgba(#f11443, 0.53);
+}
+
+// 枠線も文字も白のボタンを作る
+.btn-ghost.btn-white{
+  color: #fff;
+  border: 1px solid #fff;
+}
+.btn-ghost.btn-white:hover{
+  color: #333;
+  background: #fff;
+}
