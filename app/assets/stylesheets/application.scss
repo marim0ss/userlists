@@ -82,10 +82,15 @@
   margin-left: auto;
 }
 
-.jumbotron {
+.top-wrapper {
   background-image: url(gahag-1920.jpg);
   background-size: cover;
   background-position: center 60%;
+  z-index: -99999;
+}
+
+.top-post-wrap{
+  opacity: 0.5;
 }
 
 .jumbotron-fluid {
