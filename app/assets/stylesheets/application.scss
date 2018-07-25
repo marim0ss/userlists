@@ -73,31 +73,52 @@
   display: block;
 }
 
+.jumbotron{
+  margin-bottom: 0;
+}
+.jumbotron-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  border-radius: 0;
+}
 
 .container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  // margin: 0, auto, 0, auto;
 }
 
 .top-wrapper {
+  background-color: grey;
+  z-index: -99999;
+  height: 800px;
+}
+
+.top-image{
   background-image: url(gahag-1920.jpg);
   background-size: cover;
   background-position: center 60%;
-  z-index: -99999;
+  height: 800px;
+
+}
+
+.bottom-wrapper{
+  background-image: url(pattern_juzu_mono.png);
+  // background-position: center 30%;
+  // z-index: -99999;
+  background-repeat: repeat;
+  // background-attachment: fixed;
+  background-position: left top;
+  height: 300px;
+  margin-top: 0;
 }
 
 .top-post-wrap{
   opacity: 0.5;
+  margin-top: 80px;
 }
 
-.jumbotron-fluid {
-    padding-right: 0;
-    padding-left: 0;
-    border-radius: 0;
-}
 
 .display-4{
   font-size: 3.5rem;

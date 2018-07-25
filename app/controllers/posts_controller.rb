@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     # Post.create(posts_params)
     # Post.create(user_id: params[:user_id], content: posts_params[:content], post_image_name: posts_params[:post_image_name])
 
-    Post.create(user_id: params[:user_id], content: posts_params[:content], post_image_name: posts_params[:post_image_name])
+    Post.create(user_id: params[:user_id], content: posts_params[:content], post_image_name: posts_params[:post_image_name], image: posts_params[:image])
     # posts_paramsは下のストロングパラメータで定義したメソッドを呼び出している
   end
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   #ストロングパラメータを定義
   private
     def posts_params
-      params.require(:post).permit(:content, :post_image_name)
+      params.require(:post).permit(:content, :post_image_name, :image)
       # params.require(:post) のpostはsinmple simple_form_forで使った@postを指している
     end
       #値を送信した時に、contentはpostの配下として送信されている。user_idは独立して送信されているのでpost_paramsにはしない
