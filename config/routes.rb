@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
 
-  root to: 'users#top'
+  root to: 'users#top'
 
   #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
   resources :users do

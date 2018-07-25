@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
-def top
-  # topページ
-end
+
+  def top
+
+  end
+
+  def top2
+  end
   #一覧表示
   def index
     @users = User.all
