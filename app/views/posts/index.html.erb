@@ -1,24 +1,25 @@
 <% provide(:title, "投稿内容一覧") %>
 
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h3><%= @user.name %>の投稿内容一覧</h3>
-      <p>ID: <%= @user.id %></p>
-    </section>
-  </aside>
 
-  <div class="col-md-8">
-    <% @posts.each do |post| %>
-    <p>photo：</p>
+<div class="container col-md-8">
+  <div class="card text-center" style="width: 18rem;">
+    <h3 class="card-header"><i class="fas fa-paper-plane"> <%= @user.name %>の投稿一覧</i></h3>
+    <div class="card-body">
+      <% @posts.each do |post| %>
+          <p class="text-left">photo：</p>
+        <p><%= image_tag post.image_url(:thumb) if post.image.present? %></p>
+      <p class="text-left">comment：</p>
       <p>
-      <%= image_tag post.image_url(:thumb) if post.image.present? %>
-    </p>
-    <p>comment：</p>
-    <p><%= post.content %></p>
-    <p>date:
-      <%= post.updated_at %>
-    </p>
-    <% end %>
+        <%= post.content %>
+      </p>
+      <p class="text-left">date:
+        <%= post.updated_at %>
+      </p>
+      <%= link_to '編集', edit_user_post_path(post), :class => "btn btn-info btn-sm" %>
+      <%= link_to '削除', user_post_path(post), method: :delete, class: "btn btn-dark btn-sm" %>
+      <hr />
+      <% end %>
+    </div>
+    <p class="text-right">ID: <%= @user.id %></p>
   </div>
 </div>

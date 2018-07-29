@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   def index
     # ユーザーごとの投稿の一覧
     @posts = Post.where(user_id: params[:user_id])
-      #params[:user_id] ...user_idのパラメータが飛んできたのを
-      # where(user_id   )で探す
+    #params[:user_id] ...user_idのパラメータが飛んできたのを
+    # where(user_id   )で探す
     @user = User.find(params[:user_id])
     #ここでもuser_idを活用してユーザーの情報を取ってくる
   end
@@ -25,6 +25,27 @@ class PostsController < ApplicationController
     # posts_paramsは下のストロングパラメータで定義したメソッドを呼び出している
   end
 
+
+  #編集
+  def edit
+    # @user = User.find(params[:user_id])
+    # 編集するユーザーの情報を取得
+    @post = Post.where(id: params[:id], user_id: params[:user_id])
+  end
+
+
+  #更新
+  def update
+    # user = User.find(params[:id])
+    # user.update(users_params)
+  end
+
+  #削除
+  def destroy
+    post = Post.find_by(id: params[id])
+    # user = User.find(params[:id])
+    # user.destroy
+  end
 
 
 
