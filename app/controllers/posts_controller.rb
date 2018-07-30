@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+
   def index
     # ユーザーごとの投稿の一覧
     @posts = Post.where(user_id: params[:user_id])
@@ -27,11 +29,11 @@ class PostsController < ApplicationController
 
 
   #編集
-  # def edit
+  def edit
     # @user = User.find(params[:user_id])
     # 編集するユーザーの情報を取得
     # @post = Post.where(user_id: params[:user_id])
-  # end
+  end
 
 
   #更新
@@ -46,10 +48,6 @@ class PostsController < ApplicationController
     # user = User.find(params[:id])
     # user.destroy
   # end
-
-  def set_current_user_post
-    @post = current_user.posts.find(params[:id])
-  end
 
 
 
