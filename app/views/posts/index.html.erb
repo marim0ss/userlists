@@ -1,25 +1,29 @@
 <% provide(:title, "投稿内容一覧") %>
 
 
-<div class="container col-md-8">
-  <div class="card text-center" style="width: 18rem;">
-    <h3 class="card-header"><i class="fas fa-paper-plane"> <%= @user.name %>の投稿一覧</i></h3>
+<div class="container">
+  <!--mt-3... m:margin, p:padding t:top 3=3rem -->
+  <!-- mx-auto:左右marginを中央寄せ -->
+  <div class="mx-auto my-4"  style="width: 30rem;">
+  <div class="card border-info mb-3 text-center">
+    <h3 class="card-header text-info"><i class="fas fa-paper-plane"> <%= @user.name %>の投稿一覧</i></h3>
     <div class="card-body">
       <% @posts.each do |post| %>
-          <p class="text-left">photo：</p>
+          <p class="text-left text-secondary">photo：</p>
         <p><%= image_tag post.image_url(:thumb) if post.image.present? %></p>
-      <p class="text-left">comment：</p>
+      <p class="text-left text-secondary">comment：</p>
       <p>
         <%= post.content %>
       </p>
-      <p class="text-left">date:
+      <p class="text-left text-secondary">date:
         <%= post.updated_at %>
       </p>
-      <%= link_to '編集', edit_user_post_path(post), :class => "btn btn-info btn-sm" %>
-      <%= link_to '削除', user_post_path(post), method: :delete, class: "btn btn-dark btn-sm" %>
+      <p class="text-right"><%= link_to '編集', '#', :class => "btn btn-info btn-sm" %>
+      <%= link_to '削除', '#', method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm" %></p>
       <hr />
       <% end %>
     </div>
     <p class="text-right">ID: <%= @user.id %></p>
   </div>
+</div>
 </div>

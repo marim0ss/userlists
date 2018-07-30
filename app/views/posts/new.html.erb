@@ -9,7 +9,9 @@
 
       <hr />
       <div class="form-group">
-        <%= f.input :image, as: :file, label: "画像を投稿" %>
+        <!-- <%= f.input :image, as: :file, label: "画像を投稿" %> -->
+        <h5>画像を選択</h5>
+        <%= f.file_field :image %>
       </div>
       <div class="input-group md-3">
         <div class="input-group-prepend">

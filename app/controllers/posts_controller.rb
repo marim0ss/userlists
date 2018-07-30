@@ -27,24 +27,28 @@ class PostsController < ApplicationController
 
 
   #編集
-  def edit
+  # def edit
     # @user = User.find(params[:user_id])
     # 編集するユーザーの情報を取得
-    @post = Post.where(id: params[:id], user_id: params[:user_id])
-  end
+    # @post = Post.where(user_id: params[:user_id])
+  # end
 
 
   #更新
-  def update
+  # def update
     # user = User.find(params[:id])
     # user.update(users_params)
-  end
+  # end
 
   #削除
-  def destroy
-    post = Post.find_by(id: params[id])
+  # def destroy
+    # post = Post.find_by(id: params[id])
     # user = User.find(params[:id])
     # user.destroy
+  # end
+
+  def set_current_user_post
+    @post = current_user.posts.find(params[:id])
   end
 
 

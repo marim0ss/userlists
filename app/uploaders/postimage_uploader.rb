@@ -11,9 +11,9 @@ class PostimageUploader < CarrierWave::Uploader::Base
     version :thumb do
       process :resize_to_fit => [400, 200]
     end
-    # 許可する画像の拡張子
+    # 許可する画像の拡張子 '空欄'カメラからアップロード用
     def extension_white_list
-      %W[jpg jpeg gif png]
+      ['jpg', 'jpeg', 'gif', 'png', '']
     end
     # 変換したファイルのファイル名の規則
     def filename
