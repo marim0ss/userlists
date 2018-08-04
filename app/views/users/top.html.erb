@@ -2,36 +2,32 @@
 
 <!-- 行を増やせば背景画像も拡大する模様 -->
 <div class="top-wrapper">
-  <div class="top-image">
-    <div class="container">
-    <h1 class="display-4 top-bgtext">今日の空を投稿しよう</h1>
-    <div class="top-text lead">
-      <p>空を見上げてみましょう。</p>
-      <p>今、何が見えるでしょうか？</p>
-      <p>太陽の輝き  月のきらめき</p>
-      <p>あの雲の形は何に見えるだろう</p>
-      <p>あの星をつないだら何ができるだろう</p>
-      <p>一つとして同じ表情はない 今この瞬間。</p>
-      <p>今あなたが見ている空を投稿しよう</p>
+  <div class="row">
+    <div class="row col-md-6 mx-auto mt-4">
+      <!-- <div> -->
+        <h1 class="text-light">今日の空を投稿しよう</h1>
+      </div>
     </div>
+      <div class="row">
+        <div class="col-md-6 mx-auto mt-4 lead text-white">
+        <p>空を見上げてみましょう。</p>
+        <p>今、何が見えるでしょうか？</p>
+        <p>太陽の輝き  月のきらめき</p>
+        <p>あの雲の形は何に見えるだろう</p>
+        <p>あの星をつないだら何ができるだろう</p>
+        <p>一つとして同じ表情はない 今この瞬間。</p>
+        <p>今あなたが見ている空を投稿しよう</p>
+      </div>
     </div>
-  <div class="container">
-    <!-- <hr class="my-4"> 横線 -->
-    <p class="lead">
-      <%= link_to 'Look for MORE', users_path, class: "btn btn-success btn-ghost btn-lg" %>
-    </p>
-
-  </div>
-  <div class="jumbotron jumbotron-fluid top-post-wrap">
+    <div class="row">
+      <div class="col-md-4 mx-auto">
+        <%= link_to 'Look for MORE', users_path, class: "btn btn-success btn-ghost btn-lg" %>
+      </div>
+    </div>
+    <!-- </div> -->
+  <div class="jumbotron top-post-wrap">
     <p>
       ログインとか
     </p>
   </div>
 </div>
-</div>
-<div class="bottom-wrapper">
-  <p>test</p>
-  <p>test</p>
-  <p>test</p>
-</div>
-<!--  -->
