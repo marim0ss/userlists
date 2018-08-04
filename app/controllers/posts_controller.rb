@@ -38,8 +38,11 @@ class PostsController < ApplicationController
 
   #更新
   def update
-    # user = User.find(params[:id])
-    # user.update(users_params)
+    # user = User.find(params[:user_id])
+    post = Post.find(params[:id])
+
+    post.update(posts_params)
+    render 'index'
   end
 
   #削除
