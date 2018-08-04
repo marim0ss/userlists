@@ -20,9 +20,8 @@ class PostsController < ApplicationController
   #新規作成
   def create
     #createアクションでstrong parameter のメソッドを呼び出す
-    # Post.create(posts_params)
-    # Post.create(user_id: params[:user_id], content: posts_params[:content], post_image_name: posts_params[:post_image_name])
 
+    @user = params[:user_id]
     Post.create(user_id: params[:user_id], content: posts_params[:content], post_image_name: posts_params[:post_image_name], image: posts_params[:image])
     # posts_paramsは下のストロングパラメータで定義したメソッドを呼び出している
   end
@@ -30,17 +29,18 @@ class PostsController < ApplicationController
 
   #編集
   def edit
-    # @user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
+
     # 編集するユーザーの情報を取得
-    # @post = Post.where(user_id: params[:user_id])
+    @post = Post.find(params[:id])
   end
 
 
   #更新
-  # def update
+  def update
     # user = User.find(params[:id])
     # user.update(users_params)
-  # end
+  end
 
   #削除
   # def destroy

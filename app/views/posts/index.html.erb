@@ -6,12 +6,12 @@
   <!-- mx-auto: x=左右, y=上下  marginを中央寄せ -->
   <div class="mx-auto my-4"  style="width: 30rem;">
   <div class="card border-info mb-3 text-center">
-    <h3 class="card-header text-info"><i class="fas fa-paper-plane"> <%= @user.name %>の投稿一覧</i></h3>
+    <h3 class="card-header text-info"><i class="fas fa-paper-plane"> <%= @user.name %>さんの投稿一覧</i></h3>
     <div class="card-body">
       <% @posts.each do |post| %>
           <p class="text-left text-secondary">photo：</p>
         <p><%= image_tag post.image_url(:thumb) if post.image.present? %></p>
-      <p class="text-left text-secondary">comment：</p>
+      <!-- <p class="text-left text-secondary">comment：</p> -->
       <!-- bg-  :background color  text-info:文字色-->
       <% if post.content.present? %>
       <p class="border-0 mx-5 py-2 bg-light rounded font-italic text-info">
@@ -19,11 +19,14 @@
         <%= post.content %>
         <span class="float-right"><i class="fas fa-quote-right"></i></span>
       </p>
+      <% else %>
+      <br />
       <% end %>
       <p class="text-left text-secondary">date:
         <%= post.updated_at %>
       </p>
-      <p class="text-right"><%= link_to '編集', '#', :class => "btn btn-info btn-sm" %>
+      <!-- <p class="text-right"><%= link_to '編集', '#', :class => "btn btn-info btn-sm" %> 下記に変更-->
+      <p class="text-right"><%= link_to '編集', edit_user_post_path(@user, id: post), :class => "btn btn-info btn-sm" %>
       <%= link_to '削除', '#', method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm" %></p>
       <hr />
       <% end %>
