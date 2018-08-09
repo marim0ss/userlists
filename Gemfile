@@ -65,3 +65,6 @@ gem 'active_decorator'
 # active admin導入
 gem 'activeadmin'
 gem 'devise'
+
+# 検索機能gem
+gem 'ransack'

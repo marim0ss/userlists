@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     #params[:user_id] ...user_idのパラメータが飛んできたのを
     # where(user_id   )で探す
     @user = User.find(params[:user_id])
-    #ここでもuser_id（URL）を活用してユーザーの情報を取ってくる
+    #ここでもuser_id(URL)を活用してユーザーの情報を取ってくる
   end
 
   def new

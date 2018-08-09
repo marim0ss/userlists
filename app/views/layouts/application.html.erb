@@ -61,14 +61,19 @@
               <ul class="navbar-nav pull-right">
                 <!-- 検索窓 form -->
                 <li>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline mx-3 my-2 my-lg-0">
                   <input class="form-control mr-sm-2" type="search" placeholder="検索キーワードを入力" aria-label="Search">
                   <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <%= form_tag(users_path, method: "get") do %>
+                <%= label_tag :検索 %>
+                <%= text_field_tag :name %>
+                <%= submit_tag "検索" %>
+                <% end %>
               </li>
               <!-- ようこそゲスト -->
                 <li class="nav-item">
-                    <p class="navbar-text">ようこそ
+                    <p class="navbar-text mx-2">ようこそ
                     <%= link_to 'ゲスト', new_user_path, class: "navbar-link" %>
                   さん</p>
                     <%= link_to 'Sign UP', new_user_path, class: "btn btn-warning navbar-btn" %>
@@ -76,8 +81,6 @@
             </ul><!-- ul class="navbar-nav mr-auto -->
         </div><!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
   </nav><!-- boot4のNavibar終わり -->
-
 <%= yield %>
-
 </body>
 </html>

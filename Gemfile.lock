@@ -265,6 +265,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   rails (= 5.0.1)
+  ransack
   rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

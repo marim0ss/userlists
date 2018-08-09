@@ -1,0 +1,39 @@
+<% provide(:title, "投稿を編集") %>
+<div class="container">
+  <!--mt-3... m:margin, p:padding t:top 3=3rem -->
+  <!-- mx-auto: x=左右, y=上下  marginを中央寄せ -->
+  <div class="mx-auto my-4"  style="width: 30rem;">
+  <div class="card border-info mb-3 text-left">
+    <h3 class="card-header text-secondary"><i class="fas fa-paper-plane"> <%= @user.name %>さんの投稿を編集</i></h3>
+    <div class="card-body">
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="mx-auto mt-3 col-md-4">
+      <h3>投稿を編集する</h3>
+      <h6>Posted By：<%= @user.name %></h6> -->
+
+      <%= simple_form_for @post, :url => {:action => :update} do |f| %>
+      <div class="form-group">
+        <h6 class="text-secondary">現在の投稿内容</h6>
+        <p><%= image_tag @post.image_url(:thumb) if @post.image.present? %></p>
+        <%= f.file_field :image %>
+      </div>
+      <div class="input-group md-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <%= f.label :content, label: "コメント" %></span>
+          </div>
+
+          <%= f.text_field :content, as: :textarea, :class=>"form-control-lg" %>
+        </div>
+        <div class="row mt-4 mx-auto">
+          <%= f.button :submit, "この内容で更新する", :class=>"btn btn-warning btn show-btn" %>
+          <%= link_to '投稿一覧へ戻る', user_posts_path(@user), class: "btn btn-outline-success btn show-btn"  %>
+          <%= link_to 'ユーザー詳細へ戻る', user_path(@user), class: "btn btn-outline-secondary btn show-btn" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>

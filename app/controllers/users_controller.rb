@@ -11,6 +11,11 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @posts = Post.all
+    # データ検索ができる。commentにデータがない場合はall検索となる
+    if params[:name].present?
+      @user = User.new(name: params[:name])
+      @users = @user.execute
+    end
   end
 
   #新規作成
