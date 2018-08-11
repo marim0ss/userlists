@@ -24,6 +24,7 @@
           <%= f.button :submit, "この内容で更新する", :class=>"btn btn-warning btn show-btn" %>
           <%= link_to '投稿一覧へ戻る', user_posts_path(@user), class: "btn btn-outline-success btn show-btn"  %>
           <%= link_to 'ユーザー詳細へ戻る', user_path(@user), class: "btn btn-outline-secondary btn show-btn" %>
+          <%= link_to '削除', user_post_path(@user, id: @post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-lg" %></p>
         </div>
         <% end %>
     </div>

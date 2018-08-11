@@ -24,6 +24,8 @@ class PostsController < ApplicationController
     @user = params[:user_id]
     Post.create(user_id: params[:user_id], content: posts_params[:content], post_image_name: posts_params[:post_image_name], image: posts_params[:image])
     # posts_paramsは下のストロングパラメータで定義したメソッドを呼び出している
+
+    redirect_to user_posts_path, warning: '投稿しました!'
   end
 
 
@@ -38,19 +40,19 @@ class PostsController < ApplicationController
 
   #更新
   def update
-    # user = User.find(params[:user_id])
     post = Post.find(params[:id])
 
     post.update(posts_params)
-    redirect_to user_posts_path
+    redirect_to user_posts_path, success: '投稿を更新しました'
   end
 
-  #削除
-  # def destroy
-    # post = Post.find_by(id: params[id])
-    # user = User.find(params[:id])
-    # user.destroy
-  # end
+  # 削除
+  def destroy
+    user = User.find(params[:user_id])
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to user_posts_path, warning: '削除しました'
+  end
 
 
 
