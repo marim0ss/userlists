@@ -21,10 +21,10 @@
           <%= f.text_field :content, as: :textarea, :class=>"form-control-lg" %>
         </div>
         <div class="row mt-4 mx-auto">
-          <%= f.button :submit, "この内容で更新する", :class=>"btn btn-warning btn show-btn" %>
-          <%= link_to '投稿一覧へ戻る', user_posts_path(@user), class: "btn btn-outline-success btn show-btn"  %>
-          <%= link_to 'ユーザー詳細へ戻る', user_path(@user), class: "btn btn-outline-secondary btn show-btn" %>
-          <%= link_to '削除', user_post_path(@user, id: @post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-lg" %></p>
+          <%= f.button :submit, "この内容で更新する", :class=>"btn btn-warning show-btn" %>
+          <%= link_to '投稿一覧へ戻る', user_posts_path(@user), class: "btn btn-outline-success  show-btn"  %>
+          <%= link_to 'ユーザー詳細へ戻る', user_path(@user), class: "btn btn-outline-secondary  show-btn" %>
+          <%= link_to '削除する', user_post_path(@user, id: @post), method: :delete, data: { confirm: 'この投稿を削除しますか?' }, class: "btn btn-light show-btn" %></p>
         </div>
         <% end %>
     </div>

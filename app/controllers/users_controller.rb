@@ -5,16 +5,15 @@ class UsersController < ApplicationController
 
   end
 
-  def top2
-  end
   #一覧表示
   def index
     @users = User.all
     @posts = Post.all
-    # データ検索ができる。commentにデータがない場合はall検索となる
-    if params[:name].present?
-      @user = User.new(name: params[:name])
-      @users = @user.execute
+
+  # データ検索ができる。commentにデータがない場合はall検索となる
+    if params[:search_name || :search_age].present?
+      user_search = UserSearch.new(params_user_search)
+      @users = user_search.execute
     end
   end
 
@@ -57,6 +56,12 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
   end
+  #
+  # def search
+  #   # データ検索ができる。commentにデータがない場合はall検索となる
+  #     user_search = UserSearch.new(params_user_search)
+  #     @users = user_search.execute
+  # end
 
   #ストロングパラメータを定義
   private
@@ -65,4 +70,7 @@ class UsersController < ApplicationController
     end
     # {:programming => []}  配列を登録できるように指定
 
+    def params_user_search
+      params.permit(:search_name, :search_age)
+    end
 end

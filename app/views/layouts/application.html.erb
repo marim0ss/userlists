@@ -60,19 +60,22 @@
               </ul>
               <ul class="navbar-nav pull-right">
                 <!-- 検索窓 form -->
-                <li>
-                <form class="form-inline mx-3 my-2 my-lg-0">
+                <li class="my-auto mr-2">
+                <!-- <form class="form-inline mx-3 my-2 my-lg-0">
                   <input class="form-control mr-sm-2" type="search" placeholder="検索キーワードを入力" aria-label="Search">
                   <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </form> -->
+                <!-- ransack設定の検索フォーム -->
                 <%= form_tag(users_path, method: "get") do %>
-                <%= label_tag :検索 %>
-                <%= text_field_tag :name %>
-                <%= submit_tag "検索" %>
+                  <%= label_tag :名前 %>
+                  <%= text_field_tag :search_name %><br />
+                  <%= label_tag :年齢 %>
+                  <%= text_field_tag :search_age %>
+                  <%= submit_tag "検索", class: "btn btn-outline-info btn-sm" %>
                 <% end %>
               </li>
               <!-- ようこそゲスト -->
-                <li class="nav-item">
+                <li class="nav-item mt-2">
                     <p class="navbar-text mx-2">ようこそ
                     <%= link_to 'ゲスト', new_user_path, class: "navbar-link" %>
                   さん</p>

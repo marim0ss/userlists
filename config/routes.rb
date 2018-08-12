@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   root to: 'users#top'
+  # get '/users/search', to: 'users#search'
 
   #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
   resources :users do
