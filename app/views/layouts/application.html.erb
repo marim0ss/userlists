@@ -68,9 +68,9 @@
                 <!-- ransack設定の検索フォーム -->
                 <%= form_tag(users_path, method: "get") do %>
                   <%= label_tag :名前 %>
-                  <%= text_field_tag :search_name %><br />
+                  <%= text_field_tag :name_cont %><br />
                   <%= label_tag :年齢 %>
-                  <%= text_field_tag :search_age %>
+                  <%= text_field_tag :age_cont %>
                   <%= submit_tag "検索", class: "btn btn-outline-info btn-sm" %>
                   <%= link_to '一覧に戻る', users_path, class: "btn btn-outline-secondary btn-sm" %>
                 <% end %>
