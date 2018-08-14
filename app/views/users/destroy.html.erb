@@ -1,11 +1,7 @@
 <% provide(:title, "Destroy") %>
 
-<!-- spanの中はアイコン -->
-<div class="alert alert-dager" role="alert">
-  <strong>
-    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
-  </strong>：ユーザー情報を削除しました。
-  <%= link_to '一覧へ戻る', users_path, class: "alert-link" %>
+<div class="alert alert-danger" role="alert">
+  ユーザー情報を削除しました。<%= link_to '一覧へ戻る', users_path, class: "alert-link" %>
 </div>
 
 <div class="reslut_icon" >

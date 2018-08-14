@@ -18,11 +18,15 @@
 @import "bootstrap";
 
 
-
-
-
 // Whatever application styles you have go last
 // @import "base";
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 
 // .form-input {
   label {
@@ -69,6 +73,16 @@
   width: 300px;
   opacity: 0.5;
   display: block;
+}
+
+/* miscellaneous デバッグ情報 */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
 
 .jumbotron{

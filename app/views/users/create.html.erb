@@ -1,11 +1,7 @@
 <% provide(:title, "Create") %>
-<!-- Alert 成功しました系メッセージ。spanの中はアイコン -->
-<div class="alert alert-info" role="alert">
-  <strong>
-    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
-  </strong>：新規ユーザーとして登録しました。
-  <!-- <a href="/user/index" class="alert-link">一覧へ戻る</a> を書き換え-->
-  <%= link_to '一覧へ戻る', users_path, class: "alert-link" %>
+
+<div class="alert alert-primary" role="alert">
+  新規ユーザーとして登録しました。<%= link_to '一覧へ戻る', users_path, class: "alert-link" %>
 </div>
 
 <div class="reslut_icon" >

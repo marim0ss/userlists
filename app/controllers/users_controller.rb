@@ -25,11 +25,6 @@ class UsersController < ApplicationController
   def create
     #createアクションでstrong parameter のメソッドを呼び出す
     User.create(users_params)
-
-    # ?? disp_progでNo method Error発生
-    # user = User.new
-    # user.disp_prog(params[:programming])
-
   end
 
   #詳細表示
