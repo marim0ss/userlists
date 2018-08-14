@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+# ユーザ登録も、新規の人が最初に行うオペレーションなので、こちらも同様にログインなしで実行できるようにしておく
+  skip_before_action :require_sign_in!, only: [:new, :create]
+
   def top
 
   end
@@ -24,7 +27,13 @@ class UsersController < ApplicationController
   #新規作成完了
   def create
     #createアクションでstrong parameter のメソッドを呼び出す
-    User.create(users_params)
+    @user = User.create(users_params)
+
+    if @user.save
+      redirect_to login_path
+    else
+      render 'new'
+    end
   end
 
   #詳細表示
@@ -60,7 +69,7 @@ class UsersController < ApplicationController
   #ストロングパラメータを定義
   private
     def users_params
-      params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
     end
     # {:programming => []}  配列を登録できるように指定
 
