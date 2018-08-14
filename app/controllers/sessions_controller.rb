@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   def create
     if @user.authenticate(session_params[:password])
       sign_in(@user)
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       flash.now[:danger] = t('.flash.invalid_password')
       render 'new'
@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out    #cookieの中身のremember_tokenを削除します
+    flash.now[:danger] = t('.ログアウトしました')
     redirect_to login_path
   end
 

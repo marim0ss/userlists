@@ -40,7 +40,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
               </li>
-
+            <% if @current_user %>
             <!-- ドロップダウン -->
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,36 +52,39 @@
 
                     <%= link_to 'Something else here', "#", class: "dropdown-item" %>
                     <%= link_to 'Something else here', "#", class: "dropdown-item" %>
-
-                    <div class="dropdown-divider"></div><!-- ドロップダウン内の区切り線 -->
-                    <%= link_to 'Something else here', "#", class: "dropdown-item" %>
-                  </div>
+                      <div class="dropdown-divider"><!-- ドロップダウン内の区切り線 ================ -->
+                      </div>
+                      <!-- 検索窓 form ==================================================-->
+                      <div class="my-auto mr-2 dropdown-item">
+                      <%= form_tag(users_path, method: "get", :class=> "dropdown-item") do %>
+                        <%= label_tag :名前 %>
+                        <%= text_field_tag :name_cont %><br />
+                        <%= label_tag :年齢 %>
+                        <%= text_field_tag :age_cont %>
+                        <%= submit_tag "検索", class: "btn btn-outline-info btn-sm" %>
+                        <%= link_to '一覧に戻る', users_path, class: "btn btn-outline-secondary btn-sm" %>
+                      <% end %>
+                    </div>
+                </div>
               </li>
-              </ul>
+            <% end %>
+          </ul><!--navbar-nav -->
               <ul class="navbar-nav pull-right">
-                <!-- 検索窓 form -->
-                <li class="my-auto mr-2">
-                <!-- <form class="form-inline mx-3 my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="検索キーワードを入力" aria-label="Search">
-                  <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-                </form> -->
-                <!-- ransack設定の検索フォーム -->
-                <%= form_tag(users_path, method: "get") do %>
-                  <%= label_tag :名前 %>
-                  <%= text_field_tag :name_cont %><br />
-                  <%= label_tag :年齢 %>
-                  <%= text_field_tag :age_cont %>
-                  <%= submit_tag "検索", class: "btn btn-outline-info btn-sm" %>
-                  <%= link_to '一覧に戻る', users_path, class: "btn btn-outline-secondary btn-sm" %>
-                <% end %>
-              </li>
-              <!-- ようこそゲスト -->
+              <!-- ようこそゲスト ===================================================================-->
+              <% if @current_user %>
                 <li class="nav-item mt-2">
+                  <!-- ログイン中のユーザーを表示, -->
                     <p class="navbar-text mx-2">ようこそ
-                    <%= link_to 'ゲスト', new_user_path, class: "navbar-link" %>
-                  さん</p>
-                    <%= link_to 'Sign UP', new_user_path, class: "btn btn-ac1 navbar-btn" %>
-              </li>
+                    <%= link_to "#{@current_user.name}", user_path(@current_user), class: "navbar-link" %>さん</p>
+                    <%= link_to 'ログアウト', logout_path, method: "delete", class: "btn btn-outline-secondary btn-sm navbar-btn" %>
+                  </li>
+                <% else %>
+                  <li>
+                  <p class="navbar-text mx-2">ようこそ
+                  <%= link_to 'ゲスト', new_user_path, class: "navbar-link" %>さん</p>
+                  <%= link_to 'ログインはこちらから', login_path, class: "btn btn-ac1 navbar-btn" %>
+                </li>
+              <% end %>
             </ul><!-- ul class="navbar-nav mr-auto -->
         </div><!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
   </nav><!-- boot4のNavibar終わり -->

@@ -59,12 +59,6 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
   end
-  #
-  # def search
-  #   # データ検索ができる。commentにデータがない場合はall検索となる
-  #     user_search = UserSearch.new(params_user_search)
-  #     @users = user_search.execute
-  # end
 
   #ストロングパラメータを定義
   private

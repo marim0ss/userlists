@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_secure_password validations: true
-  validates :email, presence: true, uniqueness: true
+  validates :name, :email, presence: true, uniqueness: true
 
   # 画像表示に使用
   mount_uploader :image, PictureUploader
