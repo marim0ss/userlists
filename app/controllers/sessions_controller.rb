@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
   # 入力された情報を検証し、cookieにログイン情報を格納する  =============================================
   def create
-    if @user.authenticate(session_params[:password])    #入力されたパスワードを検証、合ってたら...
+    if @user.authenticate(session_params[:password])      #入力されたパスワードを検証、合ってたら...
       sign_in(@user)                # 探し出されたユーザーとしてサインイン.   sin_in: application_controllerで定義
       redirect_to user_path(@user)
     else

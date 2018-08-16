@@ -6,13 +6,16 @@
   <h2 class="card-header"><i class="fas fa-user-plus">ユーザー新規登録</i></h2>
   <div class="card-body">
         <%= simple_form_for @users, :url => {:action => :create} do |f| %>
+          <%= render 'shared/error_messages' %>
+          <!-- 複数のビューで使うものはsharedディレクトリに置く -->
+
           <div class="form-group">
             <%= f.label :name, "Name" %><br>
             <%= f.text_field :name %> *
           </div>
           <div class="form-group">
             <%= f.label :email, "Email" %><br>
-            <%= f.text_field :email %> *
+            <%= f.email_field :email %> *
           </div>
           <div class="form-group">
             <%= f.label :password, "password" %><br>

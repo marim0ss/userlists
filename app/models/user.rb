@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # trueを和すことによって
     # 1.userの新規登録時にpasswordの必須入力
     # 2.passwordとpassword_confirmationの内容が合致すること      のバリデーションがかかる
-
+  validates_length_of :password, maximum: 6
   #=====================================================================
   validates :name, :email, presence: true, uniqueness: true
 

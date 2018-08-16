@@ -75,6 +75,21 @@
   display: block;
 }
 
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  // @extend .has-error;無効？
+  // .form-control {
+  //   color: red;
+  // }
+}
+
 /* miscellaneous デバッグ情報 */
 
 .debug_dump {

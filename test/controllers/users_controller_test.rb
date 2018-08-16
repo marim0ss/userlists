@@ -7,12 +7,12 @@ class UsersControllerTest < ActionController::TestCase
   end
 
 
-  test "should get index" do
-    # ルートのテスト
-    get index_url
-    assert_response :success
-    # titleタグにUserlistsの文字があるかどうか
-    assert_select "title", "トップ | #{@base_title}"
-  end
+  # test "should get index" do
+  #   # ルートのテスト
+  #   get index_url
+  #   assert_response :success
+  #   # titleタグにUserlistsの文字があるかどうか
+  #   assert_select "title", "トップ | #{@base_title}"
+  # end
 
 end
