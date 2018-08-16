@@ -7,10 +7,14 @@ class PostimageUploader < CarrierWave::Uploader::Base
     def store_dir
       "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
+    # バージョン指定でサイズを変えられる
+
+    process :resize_to_limit => [1680, 1050]
     # thumb バージョン(width 400px x height 200px)
     version :thumb do
-      process :resize_to_fit => [400, 200]
+      process :resize_to_limit => [200, 200]
     end
+
     # 許可する画像の拡張子 '空欄'カメラからアップロード用
     def extension_white_list
       ['jpg', 'jpeg', 'gif', 'png', '']

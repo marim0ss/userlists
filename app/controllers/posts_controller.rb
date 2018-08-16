@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     # where(user_id   )で探す
     @user = User.find(params[:user_id])
     #ここでもuser_id(URL)を活用してユーザーの情報を取ってくる
+
+    # @all_posts = Post.find_by_sql(['select * from posts order by updated_at DESC'])
   end
 
   def new

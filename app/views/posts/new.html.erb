@@ -6,23 +6,21 @@
     <div class="card-body ac2">
 
       <%= simple_form_for @post, :url => {:action => :create} do |f| %>
-      <div class="form-row">
-        <div class="form-group">
-          <%= f.file_field :image %>
-        </div>
-        <div class="form-group">
-          <%= f.label :content, label: "コメント" %><br />
-          <%= f.text_field :content, as: :textarea, :class=>"form-control-lg" %>
-        </div>
+      <div class="row">
+          <%= f.file_field :image, class: 'form-control' %>
+          <%= f.label :"コメント" %>
+          <%= f.text_field :content, class: 'form-control' %>
       </div>
+
       <div class="row mt-3">
-        <p class="mx-auto text-center">
+        <p class="mx-auto">
           <%= f.button :submit, "投稿！", :class=>"btn btn-ac1 btn-lg btn-block my-2" %>
           <%= link_to '投稿一覧へ戻る', user_posts_path(@user), class: "btn btn-outline-info btn-lg" %>
           <%= link_to 'User詳細へ戻る', user_path(@user), class: "btn btn-outline-secondary btn-lg" %>
         </p>
       </div>
       <% end %>
+
     </div>
   </div>
 </div>

@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
 
   root to: 'users#top'
-  # get '/users/search', to: 'users#search'
 
-  # ログイン / ログアウト
-  get     'login',   to: 'sessions#new'
-  post    'login',   to: 'sessions#create'
-  delete  'logout',  to: 'sessions#destroy'
+  # ログイン / ログアウト
+  get     'login',   to: 'sessions#new'     # メール・パスワードを入力させる
+  post    'login',   to: 'sessions#create'    # 入力された情報を検証し、cookieにログイン情報を格納する
+  delete  'logout',  to: 'sessions#destroy'    # ログアウトさせる
+
 
 
   #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
