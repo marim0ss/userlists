@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.1'
+gem 'rails',        '5.0.3'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.5'
 
@@ -48,8 +48,8 @@ group :development do
   gem 'spring'
 
 end
-
-
+gem 'minitest-reporters',       '1.1.9'
+gem 'minitest', '~> 5.10', '!= 5.10.2'
 
 gem 'simple_form'
 gem 'bootstrap', '~> 4.1.1'
@@ -68,3 +68,6 @@ gem 'active_decorator'
 # active admin導入
 gem 'activeadmin'
 gem 'devise'
+
+# 検索機能gem
+gem 'ransack'

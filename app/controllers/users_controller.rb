@@ -1,12 +1,22 @@
 class UsersController < ApplicationController
 
-def top
-  # topページ
-end
+# ユーザ登録も、新規の人が最初に行うオペレーションなので、こちらも同様にログインなしで実行できるようにしておく
+  skip_before_action :require_sign_in!, only: [:new, :create]
+
+  def top
+
+  end
+
   #一覧表示
   def index
     @users = User.all
     @posts = Post.all
+
+  # データ検索ができる。commentにデータがない場合はall検索となる
+    if params[:name_cont || :age_cont].present?
+      user_search = UserSearch.new(params_user_search)
+      @users = user_search.execute
+    end
   end
 
   #新規作成
@@ -17,12 +27,13 @@ end
   #新規作成完了
   def create
     #createアクションでstrong parameter のメソッドを呼び出す
-    User.create(users_params)
+    @user = User.create(users_params)
 
-    # ?? disp_progでNo method Error発生
-    # user = User.new
-    # user.disp_prog(params[:programming])
-
+    if @user.save
+      redirect_to login_path
+    else
+      render 'new'
+    end
   end
 
   #詳細表示
@@ -52,8 +63,11 @@ end
   #ストロングパラメータを定義
   private
     def users_params
-      params.require(:user).permit(:name, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
     end
     # {:programming => []}  配列を登録できるように指定
 
+    def params_user_search
+      params.permit(:name_cont, :age_cont)
+    end
 end

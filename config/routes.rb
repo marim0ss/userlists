@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
 
-  root to: 'users#top'
+  root to: 'users#top'
+
+  # ログイン / ログアウト
+  get     'login',   to: 'sessions#new'     # メール・パスワードを入力させる
+  post    'login',   to: 'sessions#create'    # 入力された情報を検証し、cookieにログイン情報を格納する
+  delete  'logout',  to: 'sessions#destroy'    # ログアウトさせる
+
+
 
   #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
   resources :users do

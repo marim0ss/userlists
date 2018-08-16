@@ -1,13 +1,40 @@
 <% provide(:title, "投稿内容一覧") %>
-
-<h3><%= @user.name %>の投稿内容一覧</h3>
-<p>ID: <%= @user.id %></p>
-
-<div class="col-md-6">
-  <h3>投稿内容一覧</h3>
-  <% @posts.each do |post| %>
-  <p><%= post.content %></p>
-  <p>投稿写真：
-    <%= image_tag @post.post_image_name_url(:thumb) if @user.image.present?  %></p>
-  <% end %>
+<!-- フラッシュ -->
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name %>">
+    <a class="close" data-dismiss="alert">×</a>
+    <%= msg %>
+  </div>
+<% end %>
+<div class="container">
+  <!--mt-3... m:margin, p:padding t:top 3=3rem -->
+  <!-- mx-auto: x=左右, y=上下  marginを中央寄せ -->
+  <div class="mx-auto my-4"  style="width: 45rem;">
+  <div class="card border-info mb-3 text-center">
+    <h3 class="card-header text-info"><i class="fas fa-paper-plane"> <%= @user.name %>さんの投稿一覧</i></h3>
+    <div class="card-body">
+      <% @posts.each do |post| %>
+        <p><%= image_tag post.image_url if post.image.present? %></p>
+        <% if post.content.present? %>
+        <p class="border-0 mx-5 py-2 bg-light rounded font-italic text-info">
+          <span class="float-left"><i class="fas fa-quote-left"></i></span>
+          <%= post.content %>
+          <span class="float-right"><i class="fas fa-quote-right"></i></span>
+        </p>
+        <% else %>
+        <br />
+        <% end %>
+        <p class="text-left text-secondary">date:
+          <%= post.updated_at %>
+        </p>
+        <p class="text-right"><%= link_to '編集', edit_user_post_path(@user, id: post), :class => "btn btn-info btn-sm" %>
+        <hr />
+      <% end %>
+    </div>
+    <p class="mx-auto">
+      <%= link_to '新規投稿する', new_user_post_path(@user), class: "btn btn-ac1 show-btn" %>
+      <%= link_to 'ユーザー詳細へ戻る', user_path(@user), class: "btn btn-outline-warning show-btn" %>
+    </p>
+  </div>
+</div>
 </div>
