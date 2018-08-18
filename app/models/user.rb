@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     # 2.passwordとpassword_confirmationの内容が合致すること      のバリデーションがかかる
   validates_length_of :password, maximum: 6
   #=====================================================================
-  validates :name, :email, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
   # 画像表示に使用
   mount_uploader :image, PictureUploader

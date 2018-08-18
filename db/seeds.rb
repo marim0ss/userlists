@@ -4,3 +4,4 @@
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 # 検索ようのデータ投入
+User.create(name: 'Example User', email: 'example@ex.com', password: 'example', password_confirmation: 'example')

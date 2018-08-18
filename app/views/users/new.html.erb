@@ -6,70 +6,62 @@
   <h2 class="card-header"><i class="fas fa-user-plus">ユーザー新規登録</i></h2>
   <div class="card-body">
         <%= simple_form_for @users, :url => {:action => :create} do |f| %>
-          <%= render 'shared/error_messages' %>
-          <!-- 複数のビューで使うものはsharedディレクトリに置く -->
+            <%= f.label :name, "Name*" %><br>
+            <%= f.text_field :name, class: 'form-control' %>
 
-          <div class="form-group">
-            <%= f.label :name, "Name" %><br>
-            <%= f.text_field :name %> *
-          </div>
-          <div class="form-group">
-            <%= f.label :email, "Email" %><br>
-            <%= f.email_field :email %> *
-          </div>
-          <div class="form-group">
-            <%= f.label :password, "password" %><br>
-            <%= f.text_field :password %> *
-          </div>
-          <div class="form-group">
-            <%= f.label :password_confirmation, "確認用" %><br>
-            <%= f.text_field :password_confirmation %> *
-          </div>
+            <%= f.label :email, "Email*" %><br>
+            <%= f.email_field :email, class: 'form-control' %>
+
+            <%= f.label :password, "password*" %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :password_confirmation, "確認用*" %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <br />
           <!--  #as: :fileでアップロードフォームが作れる -->
-          <div class="form-group">
-          <%= f.input :image, as: :file %></div>
-
-          <!--date型で生年月日。 start_year,end_yearで西暦範囲を絞る -->
-          <div class="form-group">
-            <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year %>
-          </div>
-
-          <!-- 詳細情報登録more_profile 折りたたみcollapse ==========================================-->
-          <div class="form-group">
-            <a class="btn btn-info" data-toggle="collapse" href="#collapse_profile">
-              + Add More Profile
-            </a>
-          </div>
-          <div class="collapse" id="collapse_profile">
-            <hr />
             <div class="form-group">
-              <!-- <%= f.label :age, "年齢" %> -->
-              <%= f.input :age, collection: 0..110, label: "年齢" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :birthplace, "出身" %>
-              <%= f.text_field :birthplace %>
-            </div>
-            <!-- 性別ラジオボタン。 male=>male, female=>femaleとして登録 -->
-            <div class="form-group">
-              <%= f.input :gender, as: :radio_buttons, collection: [["male", "male"],["female", "female"]], item_wrapper_class: "inline" %>
-            </div>
+            <%= f.input :image, as: :file %></div>
 
-
-            <!--元気？ラジオボタン。 Good => 1, Fine=>2.....として登録 -->
+            <!--date型で生年月日。 start_year,end_yearで西暦範囲を絞る -->
             <div class="form-group">
-              <%= f.input :how_are_you, label: "How are you?", as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %>
+              <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year %>
             </div>
-
-            <!-- プログラミングチェックボックス -->
+            <br />
+            <!-- 詳細情報登録more_profile 折りたたみcollapse =============================== -->
             <div class="form-group">
-              <%= f.label :programming, "Your programming skill?" %>
-              <p><%= f.collection_check_boxes :programming, [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]], :first, :last %></p>
+              <a class="btn btn-info" data-toggle="collapse" href="#collapse_profile">
+                + Add More Profile
+              </a>
             </div>
-            <hr />
-          </div><!-- collapse_profile -->
-          <%= f.button :submit, "Sign UP！", :class=>"btn btn-ac1 btn-lg center-block" %>
-          <p class="text-danger font-weight-light"> *項目は入力必須です</p>
+            <div class="collapse" id="collapse_profile">
+              <hr />
+              <div class="form-group">
+                <!-- <%= f.label :age, "年齢" %> -->
+                <%= f.input :age, collection: 0..110, label: "年齢" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :birthplace, "出身" %>
+                <%= f.text_field :birthplace %>
+              </div>
+              <!-- 性別ラジオボタン。 male=>male, female=>femaleとして登録 -->
+              <div class="form-group">
+                <%= f.input :gender, as: :radio_buttons, collection: [["male", "male"],["female", "female"]], item_wrapper_class: "inline" %>
+              </div>
+
+              <!--元気？ラジオボタン。 Good => 1, Fine=>2.....として登録 -->
+              <div class="form-group">
+                <%= f.input :how_are_you, label: "How are you?", as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %>
+              </div>
+
+              <!-- プログラミングチェックボックス -->
+              <div class="form-group">
+                <%= f.label :programming, "Your programming skill?" %>
+                <p><%= f.collection_check_boxes :programming, [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]], :first, :last %></p>
+              </div>
+              <hr />
+            </div><!-- collapse_profile ========================================================-->
+            <%= f.button :submit, "Sign UP！", :class=>"btn btn-ac1 btn-lg btn-block" %>
+            <p class="text-danger font-weight-light text-center"> *は必須項目です</p>
         <% end %>
   </div>
 </div>
