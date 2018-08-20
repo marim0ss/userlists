@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
 
   root to: 'users#top'
+  get 'sessions/new'
+
 
   # ログイン / ログアウト
   get     'login',   to: 'sessions#new'     # メール・パスワードを入力させる

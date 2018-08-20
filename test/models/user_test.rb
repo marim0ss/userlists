@@ -9,4 +9,9 @@ class UserTest < ActiveSupport::TestCase
                       password: "foobar", password_confirmation: "foobar")
                       # パスワードとパスワード確認の値をセット
   end
+
+  #有効なユーザーかどうかをテストする
+  test "should be valid" do
+    assert @user.valid?
+  end
 end

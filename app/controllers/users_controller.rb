@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 # ユーザ登録も、新規の人が最初に行うオペレーションなので、こちらも同様にログインなしで実行できるようにしておく
-  skip_before_action :require_sign_in!, only: [:new, :create]
+  skip_before_action :require_sign_in!, only: [:new, :create, :top]
 
   def top
 
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path
     else
-      flash.now[:danger] = t('.ログイン失敗')
+      flash.now[:danger] = t('.新規登録に失敗しました')
       render 'new'
     end
   end

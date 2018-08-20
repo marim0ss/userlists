@@ -7,7 +7,7 @@ class UsersNewUserTest < ActionDispatch::IntegrationTest
     get new_user_path
     assert_no_difference 'User.count' do     #登録ユーザー数に変化なしのはず
       post users_path, params: { user: { name:  "invalid",
-                                         email: "",
+                                         email: "invalid@ex.com",
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end

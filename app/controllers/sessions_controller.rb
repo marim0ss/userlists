@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :require_sign_in!, only: [:new, :create]  #ログインしていなかったらログイン画面に遷移させるrequire_sign_in!を実装
+  skip_before_action :require_sign_in!, only: [:new, :create]
+    #ログインしていなかったらログイン画面に遷移させるrequire_sign_in!を実装
     # require_sign_in!:  application_controllerで定義
 
   before_action :require_sign_in!, only: [:destroy]
