@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_length_of :password, maximum: 6
   #=====================================================================
   validates :name, presence: true, uniqueness: true
-
+  validates :email, presence: true
   # 画像表示に使用
   mount_uploader :image, PictureUploader
 
