@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @posts = Post.all
 
   # データ検索ができる。commentにデータがない場合はall検索となる
-    if params[:name_cont || :age_cont].present?
+    if params[:name_cont].present? || params[:age_eq].present?
       user_search = UserSearch.new(params_user_search)
       @users = user_search.execute
     end
@@ -69,6 +69,6 @@ class UsersController < ApplicationController
     # {:programming => []}  配列を登録できるように指定
 
     def params_user_search
-      params.permit(:name_cont, :age_cont)
+      params.permit(:name_cont, :age_eq)
     end
 end
