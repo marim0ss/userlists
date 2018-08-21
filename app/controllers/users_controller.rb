@@ -13,8 +13,9 @@ class UsersController < ApplicationController
     @posts = Post.all
 
   # データ検索ができる。commentにデータがない場合はall検索となる
-    if params[:name_cont || :age_cont].present?
-      user_search = UserSearch.new(params_user_search)
+    if params[:name_cont].present? || params[:age_cont].present?
+      puts "テスト"
+      p user_search = UserSearch.new(params_user_search)
       @users = user_search.execute
     end
   end
