@@ -12,7 +12,10 @@ class PostimageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [1680, 1050]
     # thumb バージョン(width 400px x height 200px)
     version :thumb do
-      process :resize_to_limit => [200, 200]
+      process :resize_to_limit => [600, 400]
+    end
+    version :wide do
+      process :resize_to_limit => [1200, 800]
     end
 
     # 許可する画像の拡張子 '空欄'カメラからアップロード用
