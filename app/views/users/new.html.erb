@@ -1,5 +1,13 @@
 <% provide(:title, "New") %>
 
+<!-- フラッシュ -->
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name %>">
+    <a class="close" data-dismiss="alert">×</a>
+    <%= msg %>
+  </div>
+<% end %>
+
 <div class="container-fluid center-content">
 
 <div class="card" style="width: 30rem;">

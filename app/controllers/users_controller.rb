@@ -30,10 +30,9 @@ class UsersController < ApplicationController
     @user = User.create(users_params)
 
     if @user.save
-      redirect_to login_path
+      redirect_to login_path, success: '新規登録しました！'
     else
-      flash.now[:danger] = t('.新規登録に失敗しました')
-      render 'new'
+      render 'new', danger: '登録に失敗しました'
     end
   end
 
@@ -59,6 +58,7 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     user.destroy
+    redirect_to new_user_path, danger: 'ユーザーを削除しました'
   end
 
   #ストロングパラメータを定義
