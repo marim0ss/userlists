@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   #新規作成
   def new
-    @users = User.new
+    @user = User.new
   end
 
   #新規作成完了
