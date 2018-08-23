@@ -57,6 +57,13 @@ class PostsController < ApplicationController
   end
 
 
+  # みんなの投稿
+  def post_table
+    @posts = Post.all
+    # User.find_by
+  end
+
+
 
   #ストロングパラメータを定義
   private

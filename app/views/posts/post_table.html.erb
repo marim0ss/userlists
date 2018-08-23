@@ -1,0 +1,55 @@
+<% provide(:title, "みんなの投稿") %>
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="album" py-5 bg-light text-center>
+
+  <div class="album py-5 bg-light">
+    <div class="container-fluid">
+      <div class="row">
+
+        <% @posts.each do |post| %>
+        <div class="col-md-4">
+          <div class="card mb-3 shadow-md">
+
+
+            <%= image_tag post.image_url(:thumb) if post.image.present? %>
+            <div class="card-body">
+
+              <% if post.content.present? %>
+              <p class="border-0 mx-5 py-2 bg-light rounded font-italic text-info text-center">
+                <span class="float-left"><i class="fas fa-quote-left"></i></span>
+                <%= post.content %>
+                <span class="float-right"><i class="fas fa-quote-right"></i></span>
+              </p>
+              <br />
+              <% end %>
+            </div>
+            <!-- <p>Photo By<%= post.user_id %>さん</p> -->
+
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>

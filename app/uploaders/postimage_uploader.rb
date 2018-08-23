@@ -9,10 +9,10 @@ class PostimageUploader < CarrierWave::Uploader::Base
     end
     # バージョン指定でサイズを変えられる
 
-    process :resize_to_limit => [1680, 1050]
+    process :resize_to_fit => [1200, 800]
     # thumb バージョン(width 400px x height 200px)
     version :thumb do
-      process :resize_to_limit => [600, 400]
+      process :resize_to_fit => [600, 400]
     end
     version :wide do
       process :resize_to_limit => [1200, 800]

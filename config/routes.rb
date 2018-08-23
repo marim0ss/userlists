@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post    'login',   to: 'sessions#create'    # 入力された情報を検証し、cookieにログイン情報を格納する
   delete  'logout',  to: 'sessions#destroy'    # ログアウトさせる
 
+  get     'post_table',   to: 'posts#post_table'
 
 
   #resourcesを使ってルートを記述 ネストしてuserモデルにpostモデルを紐付ける
