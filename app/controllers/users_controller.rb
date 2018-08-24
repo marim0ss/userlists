@@ -67,6 +67,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
     end
     # {:programming => []}  配列を登録できるように指定
+    # マイグレーションファイルで:textにしたところは、herokuにあげる時だけ
+      # change_column :users, :programming, 'text USING CAST(programming AS text[])'に戻さないとエラー出るかも
 
     def params_user_search
       params.permit(:name_cont, :age_eq)

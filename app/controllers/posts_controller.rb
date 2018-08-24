@@ -60,7 +60,10 @@ class PostsController < ApplicationController
   # みんなの投稿
   def post_table
     @posts = Post.all
-    # User.find_by
+
+    @posts.each do |post|
+    @user = User.find_by(id: post.user_id)
+    end
   end
 
 

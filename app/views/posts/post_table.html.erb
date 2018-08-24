@@ -1,6 +1,6 @@
 <% provide(:title, "みんなの投稿") %>
 
-
+<!-- :url => {:action => :create}でshowに飛べるかどうか -->
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item">
@@ -31,7 +31,6 @@
         <div class="col-md-4">
           <div class="card mb-3 shadow-md">
 
-
             <%= image_tag post.image_url(:thumb) if post.image.present? %>
             <div class="card-body">
 
@@ -41,11 +40,13 @@
                 <%= post.content %>
                 <span class="float-right"><i class="fas fa-quote-right"></i></span>
               </p>
-              <br />
+              <p class="text-center">
+                <!-- <p>Photo By:<%= post.user_id %>さん</p> -->
+                Photo by:<% user = User.find_by(id: post.user_id) %>
+                <%= user.name %>
+              </p>
               <% end %>
             </div>
-            <!-- <p>Photo By<%= post.user_id %>さん</p> -->
-
           </div>
         </div>
         <% end %>
