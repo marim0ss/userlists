@@ -9,13 +9,14 @@ class PostimageUploader < CarrierWave::Uploader::Base
     end
     # バージョン指定でサイズを変えられる
 
-    process :resize_to_fit => [1200, 800]
+    process :resize_to_limit => [700, 700]
+
     # thumb バージョン(width 400px x height 200px)
     version :thumb do
       process :resize_to_fit => [600, 400]
     end
     version :wide do
-      process :resize_to_limit => [1200, 800]
+      process :resize_to_limit => [1080, 800]
     end
 
     # 許可する画像の拡張子 '空欄'カメラからアップロード用
@@ -26,4 +27,4 @@ class PostimageUploader < CarrierWave::Uploader::Base
     def filename
       "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
     end
-  end
+end
