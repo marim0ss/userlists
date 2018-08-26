@@ -3,7 +3,14 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
     storage :file
     process convert: 'jpg'
-    # 保存するディレクトリ名
+    #  画像を保存するディレクトリ名を設定
+
+
+    # デフォルト画像を設定.app/assets/images/default.jpgを探してくれる。
+    def default_url
+       "default.jpg"
+    end
+
     def store_dir
       "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
@@ -20,4 +27,5 @@ class PictureUploader < CarrierWave::Uploader::Base
     def filename
       "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
     end
+
   end

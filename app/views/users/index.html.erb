@@ -46,7 +46,7 @@
               <%= user.programming_status %>
             </td>
             <!-- <td> @disp_prog </td> -->
-            <td><%= image_tag user.image_url(:thumb) if user.image.present? %></td>
+            <td><%= image_tag user.image_url(:thumb) %></td>
             <td><%= link_to '詳細', user_path(user), class: "btn btn-outline-info btn-sm" %></td>
             <td><%= link_to '編集', edit_user_path(user), :class => "btn btn-outline-secondary btn-sm" %></td>
             <td><%= link_to '削除', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm" %></td>
