@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-
   def current_user
     remember_token = User.encrypt(cookies[:user_remember_token])    # cookieからトークンを取得後暗号化し、
     @current_user ||= User.find_by(remember_token: remember_token)  # cookieと同じトークンを持ったuserを取得します。

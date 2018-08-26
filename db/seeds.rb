@@ -3,7 +3,7 @@
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-# ログインしている状態で/adminに飛ぶとactiveadmin画面がでる
+# ??ログインしている状態で/adminに飛ぶとactiveadmin画面がでる
 User.create!(name: 'ExmapleUser', email: 'example@ex.com', password: 'exmaple', password_confirmation: 'exmaple')
 
 # 検索ようのデータ投入

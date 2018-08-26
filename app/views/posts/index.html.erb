@@ -14,7 +14,7 @@
     <h3 class="card-header text-info"><i class="fas fa-paper-plane"> <%= @user.name %>さんの投稿一覧</i></h3>
     <div class="card-body">
       <% @posts.each do |post| %>
-        <p><%= image_tag post.image_url(:thumb) if post.image.present? %></p>
+      <p><%= image_tag post.image_url(:thumb) if post.image.present? %></p>
         <% if post.content.present? %>
         <p class="border-0 mx-5 py-2 bg-light rounded font-italic text-info">
           <span class="float-left"><i class="fas fa-quote-left"></i></span>
