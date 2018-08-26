@@ -8,7 +8,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
     # デフォルト画像を設定.app/assets/images/default.jpgを探してくれる。
     def default_url
-       "default.jpg"
+       "default.png"
     end
 
     def store_dir
