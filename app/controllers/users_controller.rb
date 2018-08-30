@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   #一覧表示
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 30)
     @posts = Post.all
 
   # データ検索ができる。commentにデータがない場合はall検索となる

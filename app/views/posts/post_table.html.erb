@@ -2,7 +2,7 @@
 
 <!-- :url => {:action => :create}でshowに飛べるかどうか -->
 <nav aria-label="Page navigation example">
-  <ul class="pagination">
+  <ul class="pagination mt-3 justify-content-center">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -23,7 +23,7 @@
 
 <div class="album" py-5 bg-light text-center>
 
-  <div class="album py-5 bg-light">
+  <div class="album py-5">
     <div class="container-fluid">
       <div class="row">
 
@@ -42,7 +42,7 @@
               </p>
               <% end %>
               <p class="text-center">
-                <!-- <p>Photo By:<%= post.user_id %>さん</p> -->
+                <!-- <p>確認用：Photo By:<%= post.user_id %>さん</p> -->
                 Photo by:<% user = User.find_by(id: post.user_id) %>
                 <%= user.name %>
               </p>

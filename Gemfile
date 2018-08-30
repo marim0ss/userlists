@@ -78,3 +78,7 @@ gem 'devise'
 
 # 検索機能gem
 gem 'ransack'
+
+# pagination
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate', '1.0.0'
