@@ -61,7 +61,8 @@ class PostsController < ApplicationController
 
   # みんなの投稿
   def post_table
-    @posts = Post.all
+    # @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
 
     @posts.each do |post|
     @user = User.find_by(id: post.user_id)
