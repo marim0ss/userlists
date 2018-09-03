@@ -1,5 +1,5 @@
-<!-- 共通のエラーメッセージとして使用.ディレクトリとファイルは手動作成 -->
-<!-- <% if @user.errors.any? %>
+<!-- エラー時のメッセージ -->
+<% if @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
       The form contains <%= pluralize(@user.errors.count, "error") %>.
@@ -10,4 +10,4 @@
     <% end %>
     </ul>
   </div>
-<% end %> -->
+<% end %>

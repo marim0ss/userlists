@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  add_flash_types :success, :info, :warning, :danger #flashの表示。ここでで指定したキーがredirect時のflashで使えるようになる
+  #flashの表示。ここでで指定したキーがredirect時のflashで使えるようになる
+  add_flash_types :success, :info, :warning, :danger
 
   before_action :current_user
   before_action :require_sign_in!

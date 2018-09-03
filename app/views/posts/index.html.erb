@@ -1,11 +1,6 @@
 <% provide(:title, "投稿内容一覧") %>
 <!-- フラッシュ -->
-<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name %>">
-    <a class="close" data-dismiss="alert">×</a>
-    <%= msg %>
-  </div>
-<% end %>
+<%= render 'layouts/flash.html.erb' %>
 
 <!-- ページネーション ==============================================-->
 <nav aria-label="Page navigation example">

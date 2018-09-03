@@ -51,7 +51,7 @@
         <% if signed_in? %>
             <li class="nav-item dropdown">
                   <a class="navbar-brand dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <%= image_tag @current_user.image_url(:thumb), :size => '40x40' %>
+                      <%= image_tag @current_user.image_url(:thumb), :height => '40px:' %>
                   </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                 <%= link_to '新規投稿する', new_user_post_path(@current_user), class: "dropdown-item" %>

@@ -1,11 +1,6 @@
 <% provide(:title, "ログイン") %>
 <!-- フラッシュ -->
-<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name %>">
-    <a class="close" data-dismiss="alert">×</a>
-    <%= msg %>
-  </div>
-<% end %>
+<%= render 'layouts/flash.html.erb' %>
 
 <div class="container-fluid center-content text-center">
 
@@ -13,6 +8,7 @@
     <h2 class="card-header"><i class="fas fa-user-plus">ログイン</i></h2>
     <div class="card-body">
           <%= simple_form_for :session, url: login_path do |f| %>
+
             <div class="form-group">
               <%= f.label :email, "Email" %><br>
               <%= f.email_field :email %>

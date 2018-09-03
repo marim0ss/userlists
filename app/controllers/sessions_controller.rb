@@ -15,27 +15,27 @@ class SessionsController < ApplicationController
   # 入力された情報を検証し、cookieにログイン情報を格納する  =============================================
   def create
     if @user.authenticate(session_params[:password])      #入力されたパスワードを検証、合ってたら...
-      sign_in(@user)          # 探し出されたユーザーとしてサインイン.   sin_in: application_controllerで定義
-      redirect_to user_path(@user), success: 'ログインしました!'
+      sign_in(@user)     # 探し出されたユーザーとしてサインイン.   sin_in: application_controllerで定義
+      redirect_to user_posts_path(@user), success: 'ログインしました!'
     else
-      flash.now[:danger] = t('.flash.invalid_password')
+      # flash.now[:danger] = t('.flash.invalid_password')
       render 'new'
     end
+
+
   end
 
   # ログアウトの処理
   def destroy
     sign_out    #cookieの中身のremember_tokenを削除します application_controllerで定義
-    # flash.now[:danger] = t('.ログアウトしました')
     redirect_to login_path, danger: 'ログアウトしました!'
   end
 
   private
     def set_user
       @user = User.find_by!(email: session_params[:email])
-    rescue
-      flash.now[:danger] = t('.flash.invalid_mail')
-      render action: 'new'
+    rescue   # 例外が発生した時の処理
+      render 'new', info: '無効なメールアドレスです'    # 
     end
 
     # 許可するパラメータ

@@ -32,7 +32,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path, success: '新規登録しました！'
     else
-      render 'new', danger: '登録に失敗しました'
+      # flash.now[:danger] = "" => フラッシュはビューからshared/error_messages.html.erbを呼び出し
+      render 'new'
     end
   end
 

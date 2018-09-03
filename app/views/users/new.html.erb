@@ -1,12 +1,8 @@
 <% provide(:title, "New") %>
 
 <!-- フラッシュ --->
-<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name %>">
-    <a class="close" data-dismiss="alert">×</a>
-    <%= msg %>
-  </div>
-<% end %>
+<%= render 'layouts/flash.html.erb' %>
+
 
 <div class="container-fluid center-content">
 
@@ -14,6 +10,9 @@
   <h2 class="card-header"><i class="fas fa-user-plus">ユーザー新規登録</i></h2>
   <div class="card-body">
         <%= simple_form_for @user, :url => {:action => :create} do |f| %>
+
+            <%= render 'shared/error_messages.html.erb' %>
+
             <%= f.label :name, "Name*" %><br>
             <%= f.text_field :name, class: 'form-control' %>
 

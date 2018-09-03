@@ -75,6 +75,7 @@
   display: block;
 }
 
+
 #error_explanation {
   color: red;
   ul {
@@ -83,12 +84,13 @@
   }
 }
 
-.field_with_errors {
-  // @extend .has-error;無効？
-  // .form-control {
-  //   color: red;
-  // }
-}
+// .field_with_errors {
+//   @extend .has-error;
+//   .form-control {
+//     color: red;
+//   }
+// }
+
 
 /* miscellaneous デバッグ情報 */
 
