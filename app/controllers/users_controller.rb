@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-
-# ユーザ登録も、新規の人が最初に行うオペレーションなので、こちらも同様にログインなしで実行できるようにしておく
+  # ------------------------------------------------------------------
+  # ユーザ登録も、新規の人が最初に行うオペレーションなので、
+    # こちらも同様にログインなしで実行できるようにしておく
+  # ------------------------------------------------------------------
   skip_before_action :require_sign_in!, only: [:new, :create, :top]
 
   def top
@@ -30,7 +32,8 @@ class UsersController < ApplicationController
     @user = User.create(users_params)
 
     if @user.save
-      redirect_to login_path, success: '新規登録しました！'
+      sign_in(@user)    # 新規登録と同時にサインインさせる
+      redirect_to user_path(@user), success: '新規登録しました!「新規投稿する」から投稿してみましょう!'
     else
       # flash.now[:danger] = "" => フラッシュはビューからshared/error_messages.html.erbを呼び出し
       render 'new'
@@ -53,6 +56,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(users_params)
+    redirect_to user_path(user), success: 'プロフィールを更新しました'
   end
 
   #削除
@@ -62,15 +66,18 @@ class UsersController < ApplicationController
     redirect_to new_user_path, danger: 'ユーザーを削除しました'
   end
 
-  #ストロングパラメータを定義
+  # ------------------------------------------------------------------
+    #ストロングパラメータを定義
+  # ------------------------------------------------------------------
   private
     def users_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
     end
-    # {:programming => []}  配列を登録できるように指定
-    # マイグレーションファイルで:textにしたところは、herokuにあげる時だけ
+    # ------------------------------------------------------------------
+      # {:programming => []}  配列を登録できるように指定
+      # マイグレーションファイルで:textにしたところは、herokuにあげる時だけ
       # change_column :users, :programming, 'text USING CAST(programming AS text[])'に戻さないとエラー出るかも
-
+    # ------------------------------------------------------------------
     def params_user_search
       params.permit(:name_cont, :age_eq)
     end

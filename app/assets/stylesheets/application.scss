@@ -48,24 +48,24 @@
   }
 
   // input { margin-bottom: 10px;} form-groupで余白ができてるのでここは省略
-  input.radio_buttons, input.check_boxes {
-    margin-right: 5px;
-  }
-  .alert-error {
-    color: #D00;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  .hint, .error {
-    clear: left;
-    font-size: 12px;
-    color: #D00;
-    display: block;
-  }
-  .hint {
-    color: #555;
-    font-style: italic;
-  }
+input.radio_buttons, input.check_boxes {
+  margin-right: 5px;
+}
+.alert-error {
+  color: #D00;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.hint, .error {
+  clear: left;
+  font-size: 12px;
+  color: #D00;
+  display: block;
+}
+.hint {
+  color: #555;
+  font-style: italic;
+}
 
 .reslut_icon{
   height: inherit;

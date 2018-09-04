@@ -11,6 +11,7 @@
   <div class="card-body">
         <%= simple_form_for @user, :url => {:action => :create} do |f| %>
 
+            <!-- エラーメッセージ -->
             <%= render 'shared/error_messages.html.erb' %>
 
             <%= f.label :name, "Name*" %><br>
@@ -70,6 +71,7 @@
             <%= f.button :submit, "Sign UP！", :class=>"btn btn-ac1 btn-lg btn-block" %>
             <p class="text-danger font-weight-light text-center"> *は必須項目です</p>
         <% end %>
+        <p class="font-weight-light text-center">登録済ユーザーの方は<%= link_to 'こちら', login_path, :class=>"font-weight-bold text-link" %>からログイン</p>
   </div>
 </div>
 </div>
