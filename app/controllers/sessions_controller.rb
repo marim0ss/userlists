@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       sign_in(@user)     # 探し出されたユーザーとしてサインイン.   sin_in: application_controllerで定義
       redirect_to user_posts_path(@user), success: 'ログインしました!'
     else
-      # flash.now[:danger] = t('.flash.invalid_password')
+      # 失敗時のフラッシュはbefore_actionしているのでset_userからflashが出てくる
       render 'new'
     end
 
@@ -35,7 +35,8 @@ class SessionsController < ApplicationController
     def set_user
       @user = User.find_by!(email: session_params[:email])
     rescue   # 例外が発生した時の処理
-      render 'new', info: '無効なメールアドレスです'    # 
+      flash.now[:danger] = "ログインエラー:入力に誤りがあります"
+      render 'new'
     end
 
     # 許可するパラメータ
