@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   # ----------------------------------------------------------------------------
   private
     def require_sign_in!
-      redirect_to login_path unless signed_in?
+      redirect_to login_path , danger: 'ログインしてください' unless signed_in?
     end
 
 end

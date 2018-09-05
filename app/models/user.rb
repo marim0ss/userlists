@@ -28,8 +28,11 @@ class User < ActiveRecord::Base
    Digest::SHA256.hexdigest(token.to_s)
  end
 
- #fixures向けにdigestメソッドを追加
- # 渡された文字列のハッシュ値を返す
+ # ----------------------------------------------------------------------------
+ #  ログインテスト用
+ # 渡された文字列のハッシュ値を返すメソッド
+ #   => 有効なユーザーfixuresで作成できる
+ # ----------------------------------------------------------------------------
  def User.digest(string)
    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                  BCrypt::Engine.cost

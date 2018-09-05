@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   # ------------------------------------------------------------------
   # ユーザ登録も、新規の人が最初に行うオペレーションなので、
-    # こちらも同様にログインなしで実行できるようにしておく
+    # ログインなしで実行できるようにしておく
   # ------------------------------------------------------------------
   skip_before_action :require_sign_in!, only: [:new, :create, :top]
 
+  # edit, update,destroyを正しいユーザーが操作するように保護
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
+  # ------------------------------------------------------------------
+  # ------------------------------------------------------------------
   def top
 
   end
@@ -48,28 +53,32 @@ class UsersController < ApplicationController
   #編集
   def edit
     # 編集するユーザーの情報を取得
-    @user = User.find(params[:id])
+      # ↓この処理はcorrect_userが行っているので省略する
+    # @user = User.find(params[:id])
   end
 
 
   #更新
   def update
-    user = User.find(params[:id])
-    user.update(users_params)
-    redirect_to user_path(user), success: 'プロフィールを更新しました'
+    # ↓この処理はcorrect_userが行っているので省略する
+    # user = User.find(params[:id])
+    @user.update(users_params)
+    redirect_to user_path(@user), success: 'プロフィールを更新しました'
   end
 
   #削除
   def destroy
-    user = User.find(params[:id])
-    user.destroy
+    # ↓この処理はcorrect_userが行っているので省略する
+    # user = User.find(params[:id])
+    @user.destroy
     redirect_to new_user_path, danger: 'ユーザーを削除しました'
   end
 
-  # ------------------------------------------------------------------
-    #ストロングパラメータを定義
-  # ------------------------------------------------------------------
+
   private
+    # ------------------------------------------------------------------
+      #ストロングパラメータを定義
+    # ------------------------------------------------------------------
     def users_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :birthplace, :image, :gender, :birth_date, :how_are_you, :programming => [])
     end
@@ -80,5 +89,14 @@ class UsersController < ApplicationController
     # ------------------------------------------------------------------
     def params_user_search
       params.permit(:name_cont, :age_eq)
+    end
+
+    # ------------------------------------------------------------------
+    # before_action
+    # ------------------------------------------------------------------
+    # 正しいユーザーかどうか確認,違ってたらリダイレクト
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to users_path unless @user == current_user
     end
 end
