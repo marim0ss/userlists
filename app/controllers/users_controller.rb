@@ -97,6 +97,6 @@ class UsersController < ApplicationController
     # 正しいユーザーかどうか確認,違ってたらリダイレクト
     def correct_user
       @user = User.find(params[:id])
-      redirect_to users_path unless @user == current_user
+      redirect_to users_path, danger: '権限のないリクエストです' unless @user == current_user
     end
 end
