@@ -3,8 +3,8 @@ class PostsController < ApplicationController
 
   def index
     # ユーザーごとの投稿の一覧
-    # @posts = Post.where(user_id: params[:user_id])
-    @posts = Post.paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
+    @posts = Post.where(user_id: params[:user_id])
+    # @posts = Post.paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
 
     #params[:user_id] ...user_idのパラメータが飛んできたのを
     # where(user_id   )で探す

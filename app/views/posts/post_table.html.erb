@@ -31,7 +31,8 @@
               <% end %>
               <p class="text-center">
                 <!-- <p>確認用：Photo By:<%= post.user_id %>さん</p> -->
-                Photo by:<% user = User.find_by(id: post.user_id) %>
+                Photo by:
+                <!-- <% user = User.find_by(id: post.user_id) %> -->
                 <%= user.name %>
               </p>
             </div>

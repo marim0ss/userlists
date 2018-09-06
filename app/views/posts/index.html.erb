@@ -3,11 +3,11 @@
 <%= render 'layouts/flash.html.erb' %>
 
 <!-- ページネーション ==============================================-->
-<nav aria-label="Page navigation example">
+<!-- <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center mt-3">
-    <%= will_paginate(@poss, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+     will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)
   </ul>
-</nav>
+</nav> -->
 
 <div class="container">
   <!--mt-3... m:margin, p:padding t:top 3=3rem -->
@@ -43,8 +43,8 @@
 </div>
 
 <!-- ページネーション ==============================================-->
-<nav aria-label="Page navigation example">
+<!-- <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <%= will_paginate(@poss, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)
   </ul>
-</nav>
+</nav> -->
